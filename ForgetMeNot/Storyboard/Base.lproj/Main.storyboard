@@ -61,11 +61,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jym-tj-8Gf">
-                                <rect key="frame" x="56" y="121" width="274" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAc-xb-6fq">
+                                <rect key="frame" x="56" y="165" width="274" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -75,6 +74,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="lva-8U-ZSo"/>
                     <connections>
+                        <outlet property="dateLabel" destination="eAc-xb-6fq" id="XBC-Vx-yMi"/>
                         <outlet property="tableView" destination="III-5J-mSd" id="qYU-1B-rEf"/>
                     </connections>
                 </viewController>

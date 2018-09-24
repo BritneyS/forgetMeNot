@@ -10,11 +10,29 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - Properties
     var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Override Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setDate()
+        
+        }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    // MARK: - Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
@@ -26,15 +44,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    func formattedDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        let today = Date()
+        let todayString = dateFormatter.string(from: today)
+        let formattedToday = dateFormatter.date(from: todayString)
+        
+        return dateFormatter.string(from: formattedToday!)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setDate() {
+        
+        dateLabel.text = "Today is \(formattedDate())"
     }
     
 
