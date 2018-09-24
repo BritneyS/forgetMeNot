@@ -5,6 +5,6 @@ Trello Card: [Card Name](card link)
 
 ## How I did it 🌀
 
-## How you can test it 👩🏻‍🔬
+## How you can test it 🔬
 
 ## Screenshots 📸
