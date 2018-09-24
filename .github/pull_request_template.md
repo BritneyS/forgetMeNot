@@ -1,10 +1,10 @@
-## Reason
+## Reason ✨
 Trello Card: [Card Name](card link)
 
-## What I did
+## What I did ✅
 
-## How I did it
+## How I did it 🌀
 
-## How you can test it
+## How you can test it 👩🏻‍🔬
 
-## Screenshots
+## Screenshots 📸
