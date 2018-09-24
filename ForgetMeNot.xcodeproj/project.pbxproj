@@ -58,25 +58,15 @@
 		43F77B4221591F4100CDFF8F /* ForgetMeNot */ = {
 			isa = PBXGroup;
 			children = (
+				43F77B882159741400CDFF8F /* Storyboards */,
 				43F77B57215921CB00CDFF8F /* Models */,
 				43F77B56215921B600CDFF8F /* Controllers */,
-				43F77B55215921A700CDFF8F /* Storyboards */,
 				43F77B4321591F4100CDFF8F /* AppDelegate.swift */,
 				43F77B4A21591F4300CDFF8F /* Assets.xcassets */,
 				43F77B4C21591F4300CDFF8F /* LaunchScreen.storyboard */,
 				43F77B4F21591F4300CDFF8F /* Info.plist */,
 			);
 			path = ForgetMeNot;
-			sourceTree = "<group>";
-		};
-		43F77B55215921A700CDFF8F /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				43F77B4721591F4100CDFF8F /* Main.storyboard */,
-				43F77B852159716600CDFF8F /* AddEvent.storyboard */,
-				43F77B832159714900CDFF8F /* EventDetail.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		43F77B56215921B600CDFF8F /* Controllers */ = {
@@ -92,6 +82,17 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		43F77B882159741400CDFF8F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				43F77B852159716600CDFF8F /* AddEvent.storyboard */,
+				43F77B832159714900CDFF8F /* EventDetail.storyboard */,
+				43F77B4721591F4100CDFF8F /* Main.storyboard */,
+			);
+			name = Storyboards;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
