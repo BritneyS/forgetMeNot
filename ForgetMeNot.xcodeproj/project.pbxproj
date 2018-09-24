@@ -12,6 +12,8 @@
 		43F77B4921591F4100CDFF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F77B4721591F4100CDFF8F /* Main.storyboard */; };
 		43F77B4B21591F4300CDFF8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43F77B4A21591F4300CDFF8F /* Assets.xcassets */; };
 		43F77B4E21591F4300CDFF8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F77B4C21591F4300CDFF8F /* LaunchScreen.storyboard */; };
+		43F77B842159714900CDFF8F /* EventDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F77B832159714900CDFF8F /* EventDetail.storyboard */; };
+		43F77B872159716600CDFF8F /* AddEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F77B852159716600CDFF8F /* AddEvent.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		43F77B4A21591F4300CDFF8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43F77B4D21591F4300CDFF8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43F77B4F21591F4300CDFF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43F77B832159714900CDFF8F /* EventDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventDetail.storyboard; sourceTree = "<group>"; };
+		43F77B862159716600CDFF8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ForgetMeNot/Storyboards/Base.lproj/AddEvent.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				43F77B4721591F4100CDFF8F /* Main.storyboard */,
+				43F77B852159716600CDFF8F /* AddEvent.storyboard */,
+				43F77B832159714900CDFF8F /* EventDetail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -146,8 +152,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43F77B872159716600CDFF8F /* AddEvent.storyboard in Resources */,
 				43F77B4E21591F4300CDFF8F /* LaunchScreen.storyboard in Resources */,
 				43F77B4B21591F4300CDFF8F /* Assets.xcassets in Resources */,
+				43F77B842159714900CDFF8F /* EventDetail.storyboard in Resources */,
 				43F77B4921591F4100CDFF8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +189,14 @@
 				43F77B4D21591F4300CDFF8F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		43F77B852159716600CDFF8F /* AddEvent.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				43F77B862159716600CDFF8F /* Base */,
+			);
+			name = AddEvent.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
