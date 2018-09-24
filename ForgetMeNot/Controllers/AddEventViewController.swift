@@ -30,6 +30,7 @@ class AddEventViewController: UITableViewController {
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
+        titleField.becomeFirstResponder()
         super.viewDidLoad()
     }
 
