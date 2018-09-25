@@ -26,13 +26,8 @@ class EventDetailViewController: UITableViewController {
     
     // MARK: - Methods
     
-    // MARK: - Actions
-    
-    @IBAction func haveGiftYesButton(_ sender: UIButton) {
-    }
-    
-    @IBAction func haveGiftNoButton(_ sender: UIButton) {
-        showActionSheet()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func getRandomGift() -> URL? {
@@ -41,6 +36,15 @@ class EventDetailViewController: UITableViewController {
         let urlString = urls[randomIndex]
         guard let url = URL(string: urlString) else { return URL(string: "")}
         return url
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func haveGiftYesButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func haveGiftNoButton(_ sender: UIButton) {
+        showActionSheet()
     }
     
     // MARK: - Action Sheet
