@@ -11,5 +11,6 @@ import Foundation
 struct GiftIdeaLinks {
     var urls = ["https://www.uncommongoods.com/gifts",
                 "https://www.thegrommet.com/gifts",
-                "https://www.gifts.com/"]
+                "https://www.gifts.com/",
+                "https://skymall.com/products/29137grp-napanywhere-pillow"]
 }

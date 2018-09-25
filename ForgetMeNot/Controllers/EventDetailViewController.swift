@@ -32,6 +32,42 @@ class EventDetailViewController: UITableViewController {
     }
     
     @IBAction func haveGiftNoButton(_ sender: UIButton) {
+        showActionSheet()
     }
     
+    // MARK: - Action Sheet
+    
+    @objc func showActionSheet() {
+        
+        let actionSheet = UIAlertController(title: "What are you gonna do about it?", message: nil, preferredStyle: .actionSheet)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let remindAgain = UIAlertAction(title: "Remind Me Later", style: .default) { action in
+            // does anything happen here?
+        }
+        
+        let needGift = UIAlertAction(title: "Find A Gift", style: .default) { action in
+            print("need a gift")
+            let urls = GiftIdeaLinks().urls
+            let randomIndex = Int(arc4random_uniform(UInt32(urls.count)))
+            let urlString = urls[randomIndex]
+            let url = URL(string: urlString)
+            if UIApplication.shared.canOpenURL(url!) {
+                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                print(urlString)
+                print("trying url")
+            }
+            else {
+                print("can't open")
+                print(urlString)
+            }
+        }
+        
+        actionSheet.addAction(cancel)
+        actionSheet.addAction(needGift)
+        actionSheet.addAction(remindAgain)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
 }
