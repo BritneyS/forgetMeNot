@@ -46,7 +46,7 @@ extension Event {
     }
     
     func formatTimeInterval(seconds: Int) -> String {
-        let secondsInAYear = 3_153_600
+        let secondsInAYear = 29_030_400
         let secondsInAMonth = 2_419_200
         let secondsInAWeek = 604_800
         let secondsInADay = 86_400

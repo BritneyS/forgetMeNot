@@ -10,16 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
     // MARK: - Properties
-    var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
-    
+    var events: [Event] = []
     
     
     // MARK: - Override Methods
@@ -27,8 +23,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         setDate()
-        
+        populateData()
+
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,9 +44,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = events[indexPath.row]
+        cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
         
         return cell
+    }
+    
+    func populateData() {
+        let eventDatabase = EventDatabase()
+        for event in eventDatabase.events {
+            events.append(event)
+        }
+    }
+    
+    func getTimeIntervalString(event: Event) -> String {
+        let eventDate = event.dateOfEvent
+        let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
+        return "\(event.formatTimeInterval(seconds: timeIntervalInSeconds)) until \(event.eventTitle)"
     }
 
     func formattedDate() -> String {
