@@ -11,6 +11,8 @@ import UIKit
 class AddEventViewController: UITableViewController {
 
     // MARK: - Properties
+    
+    // MARK: - Outlets
     /// Labels:
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var recipientLabel: UILabel!
@@ -23,9 +25,6 @@ class AddEventViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var haveGiftSwitch: UISwitch!
     @IBOutlet weak var notesTextView: UITextView!
-    
-    
-    // MARK: - Outlets
     
     
     // MARK: - ViewDidLoad

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43248061215A726C005BAB85 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43248060215A726C005BAB85 /* EventDetailViewController.swift */; };
 		06610A9E215978FA00213D72 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610A9D215978FA00213D72 /* Event.swift */; };
 		06610AA0215A5F8A00213D72 /* EventDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610A9F215A5F8A00213D72 /* EventDatabase.swift */; };
 		06610AA2215A77E900213D72 /* GiftIdeaLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610AA1215A77E900213D72 /* GiftIdeaLinks.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43248060215A726C005BAB85 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		06610A9D215978FA00213D72 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		06610A9F215A5F8A00213D72 /* EventDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDatabase.swift; sourceTree = "<group>"; };
 		06610AA1215A77E900213D72 /* GiftIdeaLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftIdeaLinks.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				43F77B4521591F4100CDFF8F /* ViewController.swift */,
 				43F77B89215977A800CDFF8F /* HomeViewController.swift */,
+				43248060215A726C005BAB85 /* EventDetailViewController.swift */,
 				432E33C121597903008158B7 /* AddEventViewController.swift */,
 			);
 			path = Controllers;
@@ -185,6 +188,7 @@
 			files = (
 				06610AA2215A77E900213D72 /* GiftIdeaLinks.swift in Sources */,
 				43F77B4621591F4100CDFF8F /* ViewController.swift in Sources */,
+				43248061215A726C005BAB85 /* EventDetailViewController.swift in Sources */,
 				06610AA0215A5F8A00213D72 /* EventDatabase.swift in Sources */,
 				06610A9E215978FA00213D72 /* Event.swift in Sources */,
 				432E33C221597903008158B7 /* AddEventViewController.swift in Sources */,
