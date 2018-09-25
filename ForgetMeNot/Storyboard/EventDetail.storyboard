@@ -28,7 +28,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX5-p1-ZfX">
-                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
+                                                    <rect key="frame" x="24" y="11.5" width="327" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -36,8 +36,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vX5-p1-ZfX" firstAttribute="centerY" secondItem="Wac-4b-yVO" secondAttribute="centerY" id="7VT-Ao-qaw"/>
-                                                <constraint firstItem="vX5-p1-ZfX" firstAttribute="leading" secondItem="Wac-4b-yVO" secondAttribute="leading" constant="12" id="Szk-j8-BXS"/>
-                                                <constraint firstAttribute="trailing" secondItem="vX5-p1-ZfX" secondAttribute="trailing" constant="12" id="lhw-D5-ukq"/>
+                                                <constraint firstItem="vX5-p1-ZfX" firstAttribute="leading" secondItem="Wac-4b-yVO" secondAttribute="leading" constant="24" id="Szk-j8-BXS"/>
+                                                <constraint firstAttribute="trailing" secondItem="vX5-p1-ZfX" secondAttribute="trailing" constant="24" id="lhw-D5-ukq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -48,14 +48,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSM-k9-PuL">
-                                                    <rect key="frame" x="16" y="12" width="36" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSM-k9-PuL">
+                                                    <rect key="frame" x="24" y="11.5" width="327" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="nSM-k9-PuL" secondAttribute="trailing" constant="24" id="O2W-Gk-g7J"/>
+                                                <constraint firstItem="nSM-k9-PuL" firstAttribute="leading" secondItem="hSN-Pb-DXa" secondAttribute="leading" constant="24" id="RvA-eJ-jul"/>
+                                                <constraint firstItem="nSM-k9-PuL" firstAttribute="centerY" secondItem="hSN-Pb-DXa" secondAttribute="centerY" id="W4v-l2-mji"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="99" id="7qS-qW-unN">
@@ -65,30 +69,44 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do you have a gift for [recipient]?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn6-yw-8Z8">
-                                                    <rect key="frame" x="16" y="11" width="255" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have a gift for [recipient]?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn6-yw-8Z8">
+                                                    <rect key="frame" x="24" y="16" width="327" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8B0-KC-mCZ">
-                                                    <rect key="frame" x="99" y="46" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Yes!"/>
-                                                    <connections>
-                                                        <action selector="haveGiftYesButton:" destination="75D-N4-mWX" eventType="touchUpInside" id="kA5-EV-2yb"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-F6-zdp">
-                                                    <rect key="frame" x="183" y="46" width="50" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-F6-zdp">
+                                                    <rect key="frame" x="211" y="49" width="140" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="2D3-Df-HQv"/>
+                                                        <constraint firstAttribute="width" constant="140" id="bJn-NP-Ggm"/>
+                                                    </constraints>
                                                     <state key="normal" title="Not yet"/>
                                                     <connections>
                                                         <action selector="haveGiftNoButton:" destination="75D-N4-mWX" eventType="touchUpInside" id="134-kc-ERZ"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8B0-KC-mCZ">
+                                                    <rect key="frame" x="24" y="49" width="140" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="140" id="2rq-IU-Zy9"/>
+                                                        <constraint firstAttribute="height" constant="30" id="cZK-rq-EDX"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Yes!"/>
+                                                    <connections>
+                                                        <action selector="haveGiftYesButton:" destination="75D-N4-mWX" eventType="touchUpInside" id="kA5-EV-2yb"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="dn6-yw-8Z8" secondAttribute="trailing" constant="24" id="5K9-wh-JfH"/>
+                                                <constraint firstItem="hT7-F6-zdp" firstAttribute="top" secondItem="dn6-yw-8Z8" secondAttribute="bottom" constant="12" id="5Z2-LS-gLZ"/>
+                                                <constraint firstItem="dn6-yw-8Z8" firstAttribute="top" secondItem="Ry7-u3-Tq6" secondAttribute="top" constant="16" id="8TK-QA-G2H"/>
+                                                <constraint firstItem="dn6-yw-8Z8" firstAttribute="leading" secondItem="Ry7-u3-Tq6" secondAttribute="leading" constant="24" id="BrL-va-Zbv"/>
+                                                <constraint firstAttribute="trailing" secondItem="hT7-F6-zdp" secondAttribute="trailing" constant="24" id="R0L-6w-NU1"/>
+                                                <constraint firstItem="8B0-KC-mCZ" firstAttribute="top" secondItem="dn6-yw-8Z8" secondAttribute="bottom" constant="12" id="gDN-SL-NpV"/>
+                                                <constraint firstItem="8B0-KC-mCZ" firstAttribute="leading" secondItem="Ry7-u3-Tq6" secondAttribute="leading" constant="24" id="jzZ-Rm-Fat"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="404" id="cTC-C8-imb">
@@ -98,14 +116,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="403.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Notes!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n7Y-V3-VJo">
-                                                    <rect key="frame" x="16" y="0.0" width="349" height="375"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n7Y-V3-VJo">
+                                                    <rect key="frame" x="24" y="16" width="327" height="371.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="n7Y-V3-VJo" firstAttribute="leading" secondItem="4HM-lW-PeT" secondAttribute="leading" constant="24" id="77l-OV-oE3"/>
+                                                <constraint firstAttribute="trailing" secondItem="n7Y-V3-VJo" secondAttribute="trailing" constant="24" id="GFu-b1-QSr"/>
+                                                <constraint firstAttribute="bottom" secondItem="n7Y-V3-VJo" secondAttribute="bottom" constant="16" id="Ir6-G2-Dv9"/>
+                                                <constraint firstItem="n7Y-V3-VJo" firstAttribute="top" secondItem="4HM-lW-PeT" secondAttribute="top" constant="16" id="ona-li-Tej"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
