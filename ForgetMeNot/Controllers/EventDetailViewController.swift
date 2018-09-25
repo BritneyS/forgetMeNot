@@ -17,7 +17,8 @@ class EventDetailViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var haveGiftLabel: UILabel!
     @IBOutlet weak var notesView: UITextView!
-    
+    @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var yesButton: UIButton!
     
     // MARK: - Properties
     let eventsDatabase = EventDatabase()
@@ -26,6 +27,7 @@ class EventDetailViewController: UITableViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayEventData()
     }
     
     // MARK: - Methods
@@ -36,6 +38,22 @@ class EventDetailViewController: UITableViewController {
     
     func getEvent() -> Event {
         return eventsDatabase.events[0]
+    }
+    
+    func displayEventData() {
+        let event = getEvent()
+        titleLabel.text = event.eventTitle
+        dateLabel.text = event.dateOfEventString
+        haveGiftLabel.text = "Do you have a gift for \(event.giftRecipient)?"
+        notesView.text = event.eventNotes
+        if event.haveGift == false {
+            noButton.backgroundColor = UIColor.blue
+            noButton.setTitleColor(UIColor.white, for: .normal)
+        }
+        else {
+            yesButton.backgroundColor = UIColor.blue
+            yesButton.setTitleColor(UIColor.white, for: .normal)
+        }
     }
     
     func getRandomGift() -> URL? {
