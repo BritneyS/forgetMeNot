@@ -11,5 +11,5 @@ import Foundation
 
 enum SegueIdentifier: String {
     case addEventSegueIdentifier = "AddEvent"
-    case eventDetailSegueIdentifier = "eventDetail"
+    case eventDetailSegueIdentifier = "EventDetail"
 }

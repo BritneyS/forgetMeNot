@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Properties
     var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
+    var eventList: [Event] = []
+    var selectedEventIndex = 0
     
     
     
@@ -51,11 +53,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.addEventSegueIdentifier.rawValue {
-            guard let addEventDetailViewController = segue.destination as? AddEventViewController else { return }
-            addEventDetailViewController.delegate = self
-        }
+            guard let addEventViewController = segue.destination as? AddEventViewController else { return }
+            addEventViewController.delegate = self
+        } else if segue.identifier == SegueIdentifier.eventDetailSegueIdentifier.rawValue {
+            guard let eventDetailViewController = segue.destination as? eventDetailViewController else { return }
+            eventDetailViewController.eventData = eventList[selectedEventIndex]
     }
-    
+    }
     
 
     func formattedDate() -> String {
@@ -74,10 +78,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         dateLabel.text = "Today is \(formattedDate())"
     }
     
-    
-    
-    
-    
-
 
 }

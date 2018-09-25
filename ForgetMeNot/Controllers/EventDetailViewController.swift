@@ -20,6 +20,8 @@ class EventDetailViewController: UITableViewController {
     
     
     // MARK: - Properties
+    var eventData: Event?
+    
     
     
     
