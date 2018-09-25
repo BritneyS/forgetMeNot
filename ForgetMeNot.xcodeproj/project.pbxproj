@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43248061215A726C005BAB85 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43248060215A726C005BAB85 /* EventDetailViewController.swift */; };
 		432E33C221597903008158B7 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432E33C121597903008158B7 /* AddEventViewController.swift */; };
 		43F77B4421591F4100CDFF8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F77B4321591F4100CDFF8F /* AppDelegate.swift */; };
 		43F77B4621591F4100CDFF8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F77B4521591F4100CDFF8F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43248060215A726C005BAB85 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		432E33C121597903008158B7 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		43F77B4021591F4100CDFF8F /* ForgetMeNot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForgetMeNot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F77B4321591F4100CDFF8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				43F77B4521591F4100CDFF8F /* ViewController.swift */,
 				43F77B89215977A800CDFF8F /* HomeViewController.swift */,
+				43248060215A726C005BAB85 /* EventDetailViewController.swift */,
 				432E33C121597903008158B7 /* AddEventViewController.swift */,
 			);
 			path = Controllers;
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43F77B4621591F4100CDFF8F /* ViewController.swift in Sources */,
+				43248061215A726C005BAB85 /* EventDetailViewController.swift in Sources */,
 				432E33C221597903008158B7 /* AddEventViewController.swift in Sources */,
 				43F77B4421591F4100CDFF8F /* AppDelegate.swift in Sources */,
 				43F77B8A215977A800CDFF8F /* HomeViewController.swift in Sources */,
