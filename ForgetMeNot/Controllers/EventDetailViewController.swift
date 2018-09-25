@@ -29,6 +29,7 @@ class EventDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         displayEventData()
+        setButtonColors()
     }
     
     // MARK: - Methods
@@ -55,16 +56,6 @@ class EventDetailViewController: UITableViewController {
         
         guard let notesText = event?.eventNotes else { return }
         notesView.text = notesText
-        
-        guard let haveGiftValue = event?.haveGift else { return }
-        if haveGiftValue == false {
-            noButton.backgroundColor = UIColor.blue
-            noButton.setTitleColor(UIColor.white, for: .normal)
-        }
-        else {
-            yesButton.backgroundColor = UIColor.blue
-            yesButton.setTitleColor(UIColor.white, for: .normal)
-        }
     }
     
     func getRandomGift() -> URL? {
@@ -75,12 +66,37 @@ class EventDetailViewController: UITableViewController {
         return url
     }
     
+    func updateHaveGift(haveGift: Bool) {
+        guard let eventToUpdate = event else { return }
+        eventToUpdate.haveGift = haveGift
+    }
+    
+    func setButtonColors() {
+        guard let haveGiftValue = event?.haveGift else { return }
+        if haveGiftValue == false {
+            noButton.backgroundColor = UIColor.blue
+            noButton.setTitleColor(UIColor.white, for: .normal)
+            yesButton.backgroundColor = UIColor.white
+            yesButton.setTitleColor(UIColor.blue, for: .normal)
+        }
+        else {
+            yesButton.backgroundColor = UIColor.blue
+            yesButton.setTitleColor(UIColor.white, for: .normal)
+            noButton.backgroundColor = UIColor.white
+            noButton.setTitleColor(UIColor.blue, for: .normal)
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func haveGiftYesButton(_ sender: UIButton) {
+        updateHaveGift(haveGift: true)
+        setButtonColors()
     }
     
     @IBAction func haveGiftNoButton(_ sender: UIButton) {
+        updateHaveGift(haveGift: false)
+        setButtonColors()
         showActionSheet()
     }
     
