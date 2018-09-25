@@ -8,7 +8,7 @@
 
 import UIKit
 
-//MARK: - Protocol Definition
+//MARK: - Protocol Definitions
 
 protocol AddEventViewControllerDelegate: class {
     func addEventViewControllerDidCancel(_ controller: AddEventViewController)
@@ -17,9 +17,8 @@ protocol AddEventViewControllerDelegate: class {
 
 class AddEventViewController: UITableViewController {
 
-    // MARK: - Properties
-    
     // MARK: - Outlets
+    
     /// Labels:
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var recipientLabel: UILabel!
@@ -34,13 +33,13 @@ class AddEventViewController: UITableViewController {
     @IBOutlet weak var notesTextView: UITextView!
     
     
-
+    // MARK: - Properties
+    
     var event: Event?
     weak var delegate: AddEventViewControllerDelegate?
     
-   
     
-    
+
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
