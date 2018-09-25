@@ -35,6 +35,14 @@ class EventDetailViewController: UITableViewController {
         showActionSheet()
     }
     
+    func getRandomGift() -> URL? {
+        let urls = GiftIdeaLinks().urls
+        let randomIndex = Int(arc4random_uniform(UInt32(urls.count)))
+        let urlString = urls[randomIndex]
+        guard let url = URL(string: urlString) else { return URL(string: "")}
+        return url
+    }
+    
     // MARK: - Action Sheet
     
     @objc func showActionSheet() {
@@ -48,19 +56,10 @@ class EventDetailViewController: UITableViewController {
         }
         
         let needGift = UIAlertAction(title: "Find A Gift", style: .default) { action in
-            print("need a gift")
-            let urls = GiftIdeaLinks().urls
-            let randomIndex = Int(arc4random_uniform(UInt32(urls.count)))
-            let urlString = urls[randomIndex]
-            let url = URL(string: urlString)
-            if UIApplication.shared.canOpenURL(url!) {
-                UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-                print(urlString)
-                print("trying url")
-            }
-            else {
-                print("can't open")
-                print(urlString)
+            if let url = self.getRandomGift() {
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             }
         }
         
