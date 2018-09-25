@@ -10,27 +10,27 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    
-    
     // MARK: - Properties
-    var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
-    var eventList: [Event] = []
-    var selectedEventIndex = 0
     
+    var events: [Event] = []
+    var selectedEventIndex = 0
+
     
     
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        displayCurrentDate()
+        populateData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
-        setDate()
-        
-        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,11 +45,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = events[indexPath.row]
+        cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
         
         return cell
     }
     
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.addEventSegueIdentifier.rawValue {
@@ -62,6 +63,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 
+    func populateData() {
+        let eventDatabase = EventDatabase()
+        for event in eventDatabase.events {
+            events.append(event)
+        }
+    }
+    
+    func getTimeIntervalString(event: Event) -> String {
+        let eventDate = event.dateOfEvent
+        let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
+        return "\(event.formatTimeInterval(seconds: timeIntervalInSeconds)) until \(event.eventTitle)"
+    }
+
+
     func formattedDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -73,7 +88,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return dateFormatter.string(from: formattedToday!)
     }
     
-    func setDate() {
+    func displayCurrentDate() {
         
         dateLabel.text = "Today is \(formattedDate())"
     }
