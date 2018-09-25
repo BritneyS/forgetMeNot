@@ -9,8 +9,6 @@
 import UIKit
 
 class EventDetailViewController: UITableViewController {
-
-    
     
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,7 +31,6 @@ class EventDetailViewController: UITableViewController {
     }
     
     // MARK: - Methods
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -88,7 +85,6 @@ class EventDetailViewController: UITableViewController {
     }
     
     // MARK: - Actions
-    
     @IBAction func haveGiftYesButton(_ sender: UIButton) {
         updateHaveGift(haveGift: true)
         setButtonColors()
@@ -101,7 +97,6 @@ class EventDetailViewController: UITableViewController {
     }
     
     // MARK: - Action Sheet
-    
     @objc func showActionSheet() {
         
         let actionSheet = UIAlertController(title: "What are you gonna do about it?", message: nil, preferredStyle: .actionSheet)
@@ -109,7 +104,7 @@ class EventDetailViewController: UITableViewController {
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         let remindAgain = UIAlertAction(title: "Remind Me Later", style: .default) { action in
-            // does anything happen here?
+            // nothing happens here yet - it basically is another way of saying "cancel"
         }
         
         let needGift = UIAlertAction(title: "Find A Gift", style: .default) { action in
