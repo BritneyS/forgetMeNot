@@ -8,31 +8,32 @@
 
 import Foundation
 
-extension Date {
-    func toString(dateFormat format: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.string(from: self)
+extension String {
+    func toDate(dateString: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        guard let newDate = formatter.date(from: dateString) else { return Date() }
+        return newDate
     }
 }
 
 class Event {
     var eventTitle: String
     var giftRecipient: String
-    var dateOfEvent: Date
+    var dateOfEventString: String
     var haveGift: Bool
     var eventNotes: String
     
-    init(eventTitle: String, giftRecipient: String, dateOfEvent: Date, haveGift: Bool, eventNotes: String) {
+    init(eventTitle: String, giftRecipient: String, dateOfEventString: String, haveGift: Bool, eventNotes: String) {
         self.eventTitle = eventTitle
         self.giftRecipient = giftRecipient
-        self.dateOfEvent = dateOfEvent
+        self.dateOfEventString = dateOfEventString
         self.haveGift = haveGift
         self.eventNotes = eventNotes
     }
     
-    var dateOfEventString: String {
-        return dateOfEvent.toString(dateFormat: "yyyy-MM-dd") //TODO: Make this format match app's.
+    var dateOfEvent: Date {
+        return dateOfEventString.toDate(dateString: dateOfEventString)
     }
     
 }
