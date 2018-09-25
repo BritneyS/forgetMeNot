@@ -10,13 +10,13 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
     // MARK: - Properties
     var events: [Event] = []
     
-    // MARK: - IBOutlets
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Override Methods
     override func viewDidLoad() {
