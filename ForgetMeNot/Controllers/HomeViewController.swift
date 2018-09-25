@@ -57,10 +57,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("\(self.events)")
     }
     
-    func getTimeIntervalString(event: Event) {
+    func getTimeIntervalString(event: Event) -> String {
         let eventDate = event.dateOfEvent
         let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
-        //formate interval
+        return event.formatTimeInterval(seconds: timeIntervalInSeconds)
     }
 
     func formattedDate() -> String {
