@@ -152,8 +152,10 @@
                     <connections>
                         <outlet property="dateLabel" destination="nSM-k9-PuL" id="yOj-al-tdb"/>
                         <outlet property="haveGiftLabel" destination="dn6-yw-8Z8" id="6Rw-rc-Oen"/>
+                        <outlet property="noButton" destination="hT7-F6-zdp" id="VS1-qc-gUD"/>
                         <outlet property="notesView" destination="n7Y-V3-VJo" id="m45-xn-LaX"/>
                         <outlet property="titleLabel" destination="vX5-p1-ZfX" id="rba-fq-5nI"/>
+                        <outlet property="yesButton" destination="8B0-KC-mCZ" id="fHD-rh-w2d"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J75-mA-5KP" userLabel="First Responder" sceneMemberID="firstResponder"/>
