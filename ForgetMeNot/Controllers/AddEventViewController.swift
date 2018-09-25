@@ -8,6 +8,13 @@
 
 import UIKit
 
+//MARK: - Protocol Definition
+
+protocol AddEventViewControllerDelegate: class {
+    func addEventViewControllerDidCancel(_ controller: AddEventViewController)
+    func addEventViewController(_ controller: AddEventViewController, didFinishEditing item: Event)
+}
+
 class AddEventViewController: UITableViewController {
 
     // MARK: - Properties
@@ -24,6 +31,9 @@ class AddEventViewController: UITableViewController {
     @IBOutlet weak var haveGiftSwitch: UISwitch!
     @IBOutlet weak var notesTextView: UITextView!
     
+    
+    var event: Event?
+    weak var delegate: AddEventViewControllerDelegate?
     
     // MARK: - Outlets
     
