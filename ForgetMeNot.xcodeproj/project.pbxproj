@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06610A9E215978FA00213D72 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610A9D215978FA00213D72 /* Event.swift */; };
+		06610AA0215A5F8A00213D72 /* EventDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06610A9F215A5F8A00213D72 /* EventDatabase.swift */; };
 		43F77B4421591F4100CDFF8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F77B4321591F4100CDFF8F /* AppDelegate.swift */; };
 		43F77B4621591F4100CDFF8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F77B4521591F4100CDFF8F /* ViewController.swift */; };
 		43F77B4921591F4100CDFF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F77B4721591F4100CDFF8F /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		06610A9D215978FA00213D72 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		06610A9F215A5F8A00213D72 /* EventDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDatabase.swift; sourceTree = "<group>"; };
 		43F77B4021591F4100CDFF8F /* ForgetMeNot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForgetMeNot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F77B4321591F4100CDFF8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F77B4521591F4100CDFF8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				06610A9D215978FA00213D72 /* Event.swift */,
+				06610A9F215A5F8A00213D72 /* EventDatabase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43F77B4621591F4100CDFF8F /* ViewController.swift in Sources */,
+				06610AA0215A5F8A00213D72 /* EventDatabase.swift in Sources */,
 				06610A9E215978FA00213D72 /* Event.swift in Sources */,
 				43F77B4421591F4100CDFF8F /* AppDelegate.swift in Sources */,
 			);

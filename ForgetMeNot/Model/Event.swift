@@ -45,10 +45,10 @@ extension Event {
     }
     
     func formatTimeInterval(seconds: Int) -> String {
-        let secondsInAYear = 3153600
-        let secondsInAMonth = 2419200
-        let secondsInAWeek = 604800
-        let secondsInADay = 86400
+        let secondsInAYear = 3_153_600
+        let secondsInAMonth = 2_419_200
+        let secondsInAWeek = 604_800
+        let secondsInADay = 86_400
         
         switch true {
         case seconds / secondsInAYear > 0:
