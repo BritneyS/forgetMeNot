@@ -22,7 +22,6 @@ class EventDetailViewController: UITableViewController {
     let eventsDatabase = EventDatabase()
     var event: Event?
     
-    
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
