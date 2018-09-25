@@ -21,11 +21,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setDate()
+        displayCurrentDate()
         populateData()
-
-        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -73,7 +71,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return dateFormatter.string(from: formattedToday!)
     }
     
-    func setDate() {
+    func displayCurrentDate() {
         
         dateLabel.text = "Today is \(formattedDate())"
     }
