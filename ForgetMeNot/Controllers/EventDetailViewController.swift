@@ -10,13 +10,17 @@ import UIKit
 
 class EventDetailViewController: UITableViewController {
 
-    // MARK: - Properties
+    
     
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var haveGiftLabel: UILabel!
     @IBOutlet weak var notesView: UITextView!
+    
+    
+    // MARK: - Properties
+    
     
     
     // MARK: - ViewDidLoad

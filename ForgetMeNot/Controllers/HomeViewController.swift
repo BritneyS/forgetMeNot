@@ -10,13 +10,17 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: - Properties
-    var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
     
     // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    // MARK: - Properties
+    var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
+    
+    
     
     // MARK: - Override Methods
     override func viewDidLoad() {
