@@ -9,6 +9,6 @@
 import Foundation
 
 class EventDatabase {
-    var events = [Event(eventTitle: "Christmas", giftRecipient: "Bella", dateOfEvent: 2018-12-25, haveGift: <#T##Bool#>, eventNotes: <#T##String#>)
+    var events = [Event(eventTitle: "Christmas", giftRecipient: "Bella", dateOfEvent: 1545714000, haveGift: <#T##Bool#>, eventNotes: <#T##String#>)
     ]
 }
