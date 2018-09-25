@@ -22,6 +22,7 @@ class EventDetailViewController: UITableViewController {
     
     // MARK: - Properties
     let eventsDatabase = EventDatabase()
+    var event: Event?
     
     
     // MARK: - ViewDidLoad
@@ -37,16 +38,26 @@ class EventDetailViewController: UITableViewController {
     }
     
     func getEvent() -> Event {
-        return eventsDatabase.events[0]
+        return eventsDatabase.events[2]
     }
     
     func displayEventData() {
-        let event = getEvent()
-        titleLabel.text = event.eventTitle
-        dateLabel.text = event.dateOfEventString
-        haveGiftLabel.text = "Do you have a gift for \(event.giftRecipient)?"
-        notesView.text = event.eventNotes
-        if event.haveGift == false {
+        event = getEvent()
+        
+        guard let titleText = event?.eventTitle else { return }
+        titleLabel.text = titleText
+        
+        guard let dateText = event?.dateOfEventString else { return }
+        dateLabel.text = dateText
+        
+        guard let recipient = event?.giftRecipient else { return }
+        haveGiftLabel.text = "Do you have a gift for \(recipient)?"
+        
+        guard let notesText = event?.eventNotes else { return }
+        notesView.text = notesText
+        
+        guard let haveGiftValue = event?.haveGift else { return }
+        if haveGiftValue == false {
             noButton.backgroundColor = UIColor.blue
             noButton.setTitleColor(UIColor.white, for: .normal)
         }
