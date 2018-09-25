@@ -5,26 +5,7 @@
 //  Created by Britney Smith on 9/24/18.
 //  Copyright © 2018 com.detroitlabs. All rights reserved.
 //
-/*
- extension Date
- {
- func toString( dateFormat format  : String ) -> String
- {
- let dateFormatter = DateFormatter()
- dateFormatter.dateFormat = format
- return dateFormatter.string(from: self)
- }
- }
- 
- In above method we can set the required output date format.
- Usage:
- Add the following lines of code for usage:
- 
- let dateString = Date().toString(dateFormat: "yyyy/MMM/dd HH:mm:ss")
- print("dateString is \(dateString)")
- 
- // output will be 'dateString is 2017/Oct/11 17:16:23'
- */
+
 import Foundation
 
 extension Date {
@@ -51,23 +32,57 @@ class Event {
     }
     
     var dateOfEventString: String {
-        return dateOfEvent.toString(dateFormat: "yyyy-MM-dd")
+        return dateOfEvent.toString(dateFormat: "yyyy-MM-dd") //TODO: Make this format match app's.
     }
     
+}
+
+extension Event {
     
-    
-    func countdownToEvent(dateOfEvent: Date) {
+    func countdownToEvent(dateOfEvent: Date) -> Int {
         let currentDate = Date()
+        return Int(dateOfEvent.timeIntervalSince(currentDate))  // TimeInterval
+    }
+    
+    func formatTimeInterval(seconds: Int) -> String {
+        let secondsInAYear = 3153600
+        let secondsInAMonth = 2419200
+        let secondsInAWeek = 604800
+        let secondsInADay = 86400
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        let timeInterval = dateOfEvent.timeIntervalSince()
-        /*
-         let dateString = "2018-12-19"
-         let dateOfEvent = RFC3339DateFormatter.date(from: dateString)
-         let timeInterval = dateOfEvent!.timeIntervalSince(currentDate)
-         */
-        
+        switch true {
+        case seconds / secondsInAYear > 0:
+            let numberOfYears = Int(seconds / secondsInAYear)
+            if numberOfYears == 1 {
+                return "\(numberOfYears) year"
+            } else {
+                return "\(numberOfYears) years"
+            }
+        case seconds / secondsInAMonth > 0:
+            let numberOfMonths = Int(seconds / secondsInAMonth)
+            if numberOfMonths == 1 {
+                return "\(numberOfMonths) month"
+            } else {
+                return "\(numberOfMonths) months"
+            }
+        case seconds / secondsInAWeek > 0:
+            let numberofWeeks = Int(seconds / secondsInAWeek)
+            if numberofWeeks == 1 {
+                return "\(numberofWeeks) week"
+            } else {
+                return "\(numberofWeeks) weeks"
+            }
+        case seconds / secondsInADay > 0:
+            let numberOfDays = Int(seconds / secondsInADay)
+            if numberOfDays == 1 {
+                return "\(numberOfDays) day"
+            } else {
+                return "\(numberOfDays) days"
+            }
+        case seconds < secondsInADay:
+            return "Less than one day"
+        default:
+            return "Invalid date"
+        }
     }
 }
