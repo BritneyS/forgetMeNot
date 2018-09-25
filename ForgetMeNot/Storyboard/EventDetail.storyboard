@@ -12,7 +12,7 @@
         <!--Event Details-->
         <scene sceneID="9tx-z1-url">
             <objects>
-                <tableViewController title="Event Details" id="75D-N4-mWX" sceneMemberID="viewController">
+                <tableViewController title="Event Details" id="75D-N4-mWX" customClass="EventDetailViewController" customModule="ForgetMeNot" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jaQ-w6-8VL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,14 +27,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX5-p1-ZfX">
-                                                    <rect key="frame" x="16" y="12" width="34" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX5-p1-ZfX">
+                                                    <rect key="frame" x="12" y="11.5" width="351" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vX5-p1-ZfX" firstAttribute="centerY" secondItem="Wac-4b-yVO" secondAttribute="centerY" id="7VT-Ao-qaw"/>
+                                                <constraint firstItem="vX5-p1-ZfX" firstAttribute="leading" secondItem="Wac-4b-yVO" secondAttribute="leading" constant="12" id="Szk-j8-BXS"/>
+                                                <constraint firstAttribute="trailing" secondItem="vX5-p1-ZfX" secondAttribute="trailing" constant="12" id="lhw-D5-ukq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z9Y-Nc-xzb">
@@ -72,11 +76,17 @@
                                                     <rect key="frame" x="99" y="46" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Yes!"/>
+                                                    <connections>
+                                                        <action selector="haveGiftYesButton:" destination="75D-N4-mWX" eventType="touchUpInside" id="kA5-EV-2yb"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hT7-F6-zdp">
                                                     <rect key="frame" x="183" y="46" width="50" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Not yet"/>
+                                                    <connections>
+                                                        <action selector="haveGiftNoButton:" destination="75D-N4-mWX" eventType="touchUpInside" id="134-kc-ERZ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -107,6 +117,12 @@
                         </connections>
                     </tableView>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="667"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="nSM-k9-PuL" id="yOj-al-tdb"/>
+                        <outlet property="haveGiftLabel" destination="dn6-yw-8Z8" id="6Rw-rc-Oen"/>
+                        <outlet property="notesView" destination="n7Y-V3-VJo" id="m45-xn-LaX"/>
+                        <outlet property="titleLabel" destination="vX5-p1-ZfX" id="rba-fq-5nI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J75-mA-5KP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

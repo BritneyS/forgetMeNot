@@ -13,6 +13,10 @@ class EventDetailViewController: UITableViewController {
     // MARK: - Properties
     
     // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var haveGiftLabel: UILabel!
+    @IBOutlet weak var notesView: UITextView!
     
     
     // MARK: - ViewDidLoad
@@ -23,4 +27,11 @@ class EventDetailViewController: UITableViewController {
     // MARK: - Methods
     
     // MARK: - Actions
+    
+    @IBAction func haveGiftYesButton(_ sender: UIButton) {
+    }
+    
+    @IBAction func haveGiftNoButton(_ sender: UIButton) {
+    }
+    
 }
