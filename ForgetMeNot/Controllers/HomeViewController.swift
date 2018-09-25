@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Properties
-    var events = ["Anniversary, Sept. 27", "LabsCon, Sept. 28"]
+    var events: [Event] = []
     
     // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
@@ -23,8 +23,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         
         setDate()
-        
+        populateData()
+
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,9 +44,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = events[indexPath.row]
+        cell.textLabel?.text = events[indexPath.row].eventTitle
         
         return cell
+    }
+    
+    func populateData() {
+        let eventDatabase = EventDatabase()
+        for event in eventDatabase.events {
+            events.append(event)
+        }
+        print("\(self.events)")
+    }
+    
+    func getTimeIntervalString(event: Event) {
+        let eventDate = event.dateOfEvent
+        let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
+        //formate interval
     }
 
     func formattedDate() -> String {
