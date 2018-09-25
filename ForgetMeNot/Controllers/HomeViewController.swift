@@ -44,7 +44,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = events[indexPath.row].eventTitle
+        cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
+        //events[indexPath.row].eventTitle
         
         return cell
     }
@@ -60,7 +61,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getTimeIntervalString(event: Event) -> String {
         let eventDate = event.dateOfEvent
         let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
-        return event.formatTimeInterval(seconds: timeIntervalInSeconds)
+        return "\(event.formatTimeInterval(seconds: timeIntervalInSeconds)) until \(event.eventTitle)"
     }
 
     func formattedDate() -> String {
