@@ -20,7 +20,7 @@ class EventDetailViewController: UITableViewController {
     
     
     // MARK: - Properties
-    
+    let eventsDatabase = EventDatabase()
     
     
     // MARK: - ViewDidLoad
@@ -32,6 +32,10 @@ class EventDetailViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func getEvent() -> Event {
+        return eventsDatabase.events[0]
     }
     
     func getRandomGift() -> URL? {
