@@ -116,18 +116,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="403.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n7Y-V3-VJo">
-                                                    <rect key="frame" x="24" y="16" width="327" height="371.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="These are my notes :)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n7Y-V3-VJo">
+                                                    <rect key="frame" x="24" y="48" width="327" height="339.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9p-16-A1S">
+                                                    <rect key="frame" x="24" y="12" width="327" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="n7Y-V3-VJo" firstAttribute="leading" secondItem="4HM-lW-PeT" secondAttribute="leading" constant="24" id="77l-OV-oE3"/>
+                                                <constraint firstAttribute="trailing" secondItem="Z9p-16-A1S" secondAttribute="trailing" constant="24" id="7b8-bi-Cjf"/>
+                                                <constraint firstItem="Z9p-16-A1S" firstAttribute="top" secondItem="4HM-lW-PeT" secondAttribute="top" constant="12" id="9pT-u4-m3p"/>
                                                 <constraint firstAttribute="trailing" secondItem="n7Y-V3-VJo" secondAttribute="trailing" constant="24" id="GFu-b1-QSr"/>
                                                 <constraint firstAttribute="bottom" secondItem="n7Y-V3-VJo" secondAttribute="bottom" constant="16" id="Ir6-G2-Dv9"/>
-                                                <constraint firstItem="n7Y-V3-VJo" firstAttribute="top" secondItem="4HM-lW-PeT" secondAttribute="top" constant="16" id="ona-li-Tej"/>
+                                                <constraint firstItem="Z9p-16-A1S" firstAttribute="leading" secondItem="4HM-lW-PeT" secondAttribute="leading" constant="24" id="iue-bI-nZv"/>
+                                                <constraint firstItem="n7Y-V3-VJo" firstAttribute="top" secondItem="4HM-lW-PeT" secondAttribute="top" constant="48" id="ona-li-Tej"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
