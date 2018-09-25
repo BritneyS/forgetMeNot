@@ -61,6 +61,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getTimeIntervalString(event: Event) -> String {
         let eventDate = event.dateOfEvent
         let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
+        print("Time Interval in Seconds: \(timeIntervalInSeconds)")
         return "\(event.formatTimeInterval(seconds: timeIntervalInSeconds)) until \(event.eventTitle)"
     }
 
