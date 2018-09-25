@@ -18,6 +18,8 @@ protocol AddEventViewControllerDelegate: class {
 class AddEventViewController: UITableViewController {
 
     // MARK: - Properties
+    
+    // MARK: - Outlets
     /// Labels:
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var recipientLabel: UILabel!
@@ -32,12 +34,14 @@ class AddEventViewController: UITableViewController {
     @IBOutlet weak var notesTextView: UITextView!
     
     
+
     var event: Event?
     weak var delegate: AddEventViewControllerDelegate?
     
-    // MARK: - Outlets
+   
     
     
+
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         titleField.becomeFirstResponder()
