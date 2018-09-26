@@ -85,6 +85,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return dateFormatter.string(from: formattedToday!)
     }
     
+    func swipeToDelete(indexPath: IndexPath) {
+        events.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            swipeToDelete(indexPath: indexPath)
+            //save methos here if using persistence
+        }
+    }
+    
     func displayCurrentDate() {
         
         dateLabel.text = "Today is \(formattedDate())"
