@@ -23,6 +23,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         displayCurrentDate()
         populateData()
+        
+        // shows usually hidden folders
+        print("🌸 Document folder is \(documentsDirectory())")
+        print("🌸 Data file path is \(dataFilePath())")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,32 +109,31 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         dateLabel.text = "Today is \(formattedDate())"
     }
-    
-//    func saveEvents() {
-//        let encoder = PropertyListEncoder()
-//        do {
-//            let data = try encoder.encode(events)
-//
-//            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-//        } catch {
-//            print("Error encoding item array")
-//        }
-//    }
 
 }
 
 
 
-
+// MARK: Data Persistence
 extension HomeViewController {
     
-    private func populateEvents() {
-        let eventDatabase = EventDatabase()
-        
-        for event in eventDatabase.events {
-            let newEvent = Event(eventTitle: event.eventTitle, giftRecipient: event.giftRecipient, dateOfEventString: event.dateOfEventString, haveGift: event.haveGift, eventNotes: event.eventNotes)
-            print(eventDatabase)
-            print(newEvent)
+    // accessing Documents folder of app
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    // adding new file to directory
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Contacts.plist")
+    }
+    
+    func saveEvents() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(events)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding item array")
         }
     }
 }
