@@ -52,6 +52,7 @@ class AddEventViewController: UITableViewController {
         titleField.becomeFirstResponder()
         super.viewDidLoad()
         renderSaveBarButton()
+        renderCancelBarButton()
     }
 
     // MARK: - Methods
@@ -64,35 +65,26 @@ class AddEventViewController: UITableViewController {
         navigationItem.rightBarButtonItem = saveBarButtonItem
     }
     
+    func renderCancelBarButton() {
+        let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        navigationItem.leftBarButtonItem = cancelBarButtonItem
+    }
     
+    // MARK: - Actions
     @objc
-    func save(){
+    func save() {
         
         let dateString = datePicker.date.toString(dateFormat: "MM/dd/yyyy")
         
         let event = Event(eventTitle: titleField.text!, giftRecipient: recipientField.text!, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: notesTextView.text!)
                 delegate?.addEventViewController(self, didFinishAdding: event)
-        
     }
     
-    
-    
-    // MARK: - Actions
-    
-    
-    
-    //These will be button functions once connected
-    // MARK: @IBActions
-    
-    
-    @IBAction func cancel() {
+    @objc
+    func cancel() {
         delegate?.addEventViewControllerDidCancel(self)
     }
-    
-    
-    
-    
-    
+
 }
 
 
