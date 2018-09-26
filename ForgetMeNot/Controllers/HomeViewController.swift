@@ -149,8 +149,6 @@ extension HomeViewController {
             }
         }
     }
-    
-    
 }
 
 
