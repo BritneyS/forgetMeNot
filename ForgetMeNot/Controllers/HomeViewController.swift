@@ -25,9 +25,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         populateData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.isNavigationBarHidden = true
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
