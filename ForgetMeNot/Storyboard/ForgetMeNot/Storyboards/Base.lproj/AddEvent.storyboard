@@ -34,7 +34,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHI-H5-Ndq">
-                                                    <rect key="frame" x="76" y="6" width="8" height="31.5"/>
+                                                    <rect key="frame" x="76" y="6" width="283" height="34.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -42,9 +42,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="BHI-H5-Ndq" firstAttribute="top" secondItem="ijC-Pf-UlP" secondAttribute="top" constant="6" id="2or-6T-lhf"/>
+                                                <constraint firstAttribute="trailing" secondItem="BHI-H5-Ndq" secondAttribute="trailing" constant="16" id="7Bj-nP-ntL"/>
                                                 <constraint firstItem="U9P-XG-AkA" firstAttribute="top" secondItem="ijC-Pf-UlP" secondAttribute="top" constant="12" id="7vC-WY-3tk"/>
                                                 <constraint firstItem="BHI-H5-Ndq" firstAttribute="leading" secondItem="U9P-XG-AkA" secondAttribute="trailing" constant="14" id="B8M-4a-Ghh"/>
-                                                <constraint firstItem="BHI-H5-Ndq" firstAttribute="centerY" secondItem="ijC-Pf-UlP" secondAttribute="centerY" id="pb3-os-aUy"/>
+                                                <constraint firstAttribute="bottom" secondItem="BHI-H5-Ndq" secondAttribute="bottom" constant="3" id="oM3-NA-xwh"/>
                                                 <constraint firstItem="U9P-XG-AkA" firstAttribute="leading" secondItem="ijC-Pf-UlP" secondAttribute="leading" constant="24" id="rl1-Qv-mbB"/>
                                                 <constraint firstItem="U9P-XG-AkA" firstAttribute="centerY" secondItem="ijC-Pf-UlP" secondAttribute="centerY" id="scf-W8-fvm"/>
                                             </constraints>
@@ -64,7 +65,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-PU-gSA">
-                                                    <rect key="frame" x="108" y="13.5" width="8" height="17"/>
+                                                    <rect key="frame" x="114" y="6" width="245" height="34.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -72,10 +73,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vOc-kB-aWe" firstAttribute="top" secondItem="KBA-Tg-YQD" secondAttribute="top" constant="12" id="2qQ-Rc-sUP"/>
+                                                <constraint firstAttribute="trailing" secondItem="HSD-PU-gSA" secondAttribute="trailing" constant="16" id="CoI-Pt-jFv"/>
                                                 <constraint firstItem="vOc-kB-aWe" firstAttribute="centerY" secondItem="KBA-Tg-YQD" secondAttribute="centerY" id="Lz7-RT-BlI"/>
                                                 <constraint firstItem="vOc-kB-aWe" firstAttribute="leading" secondItem="KBA-Tg-YQD" secondAttribute="leading" constant="24" id="XgK-7w-IpH"/>
-                                                <constraint firstItem="HSD-PU-gSA" firstAttribute="centerY" secondItem="KBA-Tg-YQD" secondAttribute="centerY" id="bFH-fP-TDi"/>
-                                                <constraint firstItem="HSD-PU-gSA" firstAttribute="leading" secondItem="vOc-kB-aWe" secondAttribute="trailing" constant="8" id="hga-TG-B51"/>
+                                                <constraint firstAttribute="bottom" secondItem="HSD-PU-gSA" secondAttribute="bottom" constant="3" id="aDk-Y9-aLh"/>
+                                                <constraint firstItem="HSD-PU-gSA" firstAttribute="leading" secondItem="vOc-kB-aWe" secondAttribute="trailing" constant="14" id="hga-TG-B51"/>
+                                                <constraint firstItem="HSD-PU-gSA" firstAttribute="top" secondItem="KBA-Tg-YQD" secondAttribute="top" constant="6" id="rnt-xd-7yJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -121,7 +124,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAz-aR-X5P">
-                                                    <rect key="frame" x="310" y="6" width="51" height="31"/>
+                                                    <rect key="frame" x="310" y="6.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
