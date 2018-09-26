@@ -26,7 +26,7 @@
                                     <color key="titleColor" red="0.41599031813558945" green="0.45918677839148225" blue="0.87428160919540232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Bae-NO-Bqg" kind="show" id="gDH-EM-hk2"/>
+                                    <segue destination="Bae-NO-Bqg" kind="show" identifier="AddEvent" id="gDH-EM-hk2"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="III-5J-mSd">
@@ -54,7 +54,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Detail View"/>
                                 <connections>
-                                    <segue destination="J71-jx-iFO" kind="show" id="3hu-Q1-iXM"/>
+                                    <segue destination="J71-jx-iFO" kind="show" identifier="EventDetail" id="3hu-Q1-iXM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-F1-H0m">

@@ -103,31 +103,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 }
 
-// MARK: Private Implementation
-
-//extension HomeViewController {
-//
-//
-//    func addEventViewControllerDidCancel(_ controller: AddEventViewController) {
-//        <#code#>
-//    }
-//
-//    func addEventViewController(_ controller: AddEventViewController, didFinishEditing item: Event) {
-//        <#code#>
-//    }
-//
-//
-//}
 
 
 
 extension HomeViewController {
     
     private func populateEvents() {
+        let eventDatabase = EventDatabase()
         
+        for event in eventDatabase.events {
+            let newEvent = Event(eventTitle: event.eventTitle, giftRecipient: event.giftRecipient, dateOfEventString: event.dateOfEventString, haveGift: event.haveGift, eventNotes: event.eventNotes)
+            print(eventDatabase)
+            print(newEvent)
+        }
     }
 }
-
 
 
 
@@ -150,13 +140,11 @@ extension HomeViewController: AddEventViewControllerDelegate {
         navigationController?.popViewController(animated: true)
         
         
-        //need to create a save function and call that method here
+        //need to create a save function and call that method here if doing persistence
         
         }
     
 }
 
 
-//need to connect labels from add event view
-//place the below line (+ the ones for the other labels) in tableview function func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    //cell.dateLabel.text = event.dateOfEventString  *Must check for cell id/name*
+
