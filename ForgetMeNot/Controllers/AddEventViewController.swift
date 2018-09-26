@@ -73,11 +73,6 @@ class AddEventViewController: UITableViewController {
         let event = Event(eventTitle: titleField.text!, giftRecipient: recipientField.text!, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: notesTextView.text!)
                 delegate?.addEventViewController(self, didFinishAdding: event)
         
-        print(event.eventTitle)
-        print(event.giftRecipient)
-        print(event.dateOfEventString)
-        print(event.haveGift)
-        print(event.eventNotes)
     }
     
     
