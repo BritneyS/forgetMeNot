@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Properties
     var events: [Event] = []
-    
+    var selectedEventIndex: Int?
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -45,6 +45,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedEventIndex = indexPath.row
+        return indexPath
     }
     
     func populateData() {
