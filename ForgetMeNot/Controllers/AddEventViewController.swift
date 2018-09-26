@@ -55,6 +55,10 @@ class AddEventViewController: UITableViewController {
     }
 
     // MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -63,7 +67,6 @@ class AddEventViewController: UITableViewController {
         let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         navigationItem.rightBarButtonItem = saveBarButtonItem
     }
-    
     
     @objc
     func save(){
