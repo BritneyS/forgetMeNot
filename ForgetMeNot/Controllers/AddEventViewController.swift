@@ -15,6 +15,14 @@ protocol AddEventViewControllerDelegate: class {
     func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event)
 }
 
+extension Date {
+    func toString(dateFormat format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+}
+
 class AddEventViewController: UITableViewController {
 
     // MARK: - Outlets
@@ -38,8 +46,6 @@ class AddEventViewController: UITableViewController {
     var event: Event?
     weak var delegate: AddEventViewControllerDelegate?
     
-    
-
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -58,11 +64,18 @@ class AddEventViewController: UITableViewController {
         navigationItem.rightBarButtonItem = saveBarButtonItem
     }
     
-    //delete this after adding real save functionality
+    
     @objc
     func save(){
-        //save functionality can go here
+        
+        let dateString = datePicker.date.toString(dateFormat: "MM/dd/yyyy")
+        
+        let event = Event(eventTitle: titleField.text!, giftRecipient: recipientField.text!, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: notesTextView.text!)
+                delegate?.addEventViewController(self, didFinishAdding: event)
+        
     }
+    
+    
     
     // MARK: - Actions
     
@@ -71,14 +84,16 @@ class AddEventViewController: UITableViewController {
     //These will be button functions once connected
     // MARK: @IBActions
     
-//    @IBAction func save() {
-//        let event = Event(eventTitle: titleField!, giftRecipient: recipientField!, dateOfEventString: datePicker!, haveGift: haveGiftSwitch!, eventNotes: notesLabel!)
-//        delegate?.addEventViewController(self, didFinishAdding: event)
-//    
-//    }
     
     @IBAction func cancel() {
         delegate?.addEventViewControllerDidCancel(self)
     }
     
+    
+    
+    
+    
 }
+
+
+
