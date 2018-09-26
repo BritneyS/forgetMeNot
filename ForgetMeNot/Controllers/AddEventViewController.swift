@@ -80,7 +80,9 @@ class AddEventViewController: UITableViewController {
         
         let dateString = datePicker.date.toString(dateFormat: "MM/dd/yyyy")
         
-        let event = Event(eventTitle: titleField.text!, giftRecipient: recipientField.text!, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: notesTextView.text!)
+        guard let eventTitle = titleField.text, let giftRecipient = recipientField.text, let eventNotes = notesTextView.text else { return }
+        
+        let event = Event(eventTitle: eventTitle, giftRecipient: giftRecipient, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: eventNotes)
                 delegate?.addEventViewController(self, didFinishAdding: event)
     }
     
