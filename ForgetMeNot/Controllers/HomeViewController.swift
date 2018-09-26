@@ -51,6 +51,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return indexPath
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.addEventSegueIdentifier.rawValue {
             guard let addEventViewController = segue.destination as? AddEventViewController else { return }
