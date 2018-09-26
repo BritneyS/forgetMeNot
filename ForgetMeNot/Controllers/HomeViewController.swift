@@ -156,7 +156,6 @@ extension HomeViewController {
 extension HomeViewController: AddEventViewControllerDelegate {
 
     func addEventViewControllerDidCancel(_ controller: AddEventViewController) {
-        //print("Do some stuff")
         navigationController?.popViewController(animated: true)
         }
     
