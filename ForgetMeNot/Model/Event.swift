@@ -17,7 +17,7 @@ extension String {
     }
 }
 
-class Event {
+class Event: Codable {
     var eventTitle: String
     var giftRecipient: String
     var dateOfEventString: String

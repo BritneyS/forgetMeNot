@@ -54,6 +54,7 @@ class AddEventViewController: UITableViewController {
         renderSaveBarButton()
         self.view.backgroundColor = Settings.sharedService.lighterColor;
         renderCancelBarButton()
+        restrictDates()
     }
 
     // MARK: - Methods
@@ -63,6 +64,10 @@ class AddEventViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func restrictDates() {
+        datePicker.minimumDate = Date()
     }
 
     func renderSaveBarButton() {
