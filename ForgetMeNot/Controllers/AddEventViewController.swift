@@ -52,7 +52,7 @@ class AddEventViewController: UITableViewController {
         titleField.becomeFirstResponder()
         super.viewDidLoad()
         renderSaveBarButton()
-        self.view.backgroundColor = Settings.sharedService.forgetMeColor;
+        self.view.backgroundColor = Settings.sharedService.lighterColor;
         renderCancelBarButton()
         restrictDates()
     }

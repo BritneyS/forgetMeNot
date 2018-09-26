@@ -26,6 +26,7 @@ class EventDetailViewController: UITableViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = Settings.sharedService.lighterColor;
         displayEventData()
         setButtonColors()
     }
@@ -67,18 +68,22 @@ class EventDetailViewController: UITableViewController {
     }
     
     func setButtonColors() {
+        
+        let darkerPurpleColor = UIColor(red: 120/255.0, green: 148/255.0, blue: 255/255.0, alpha: 1.0)
+        let lighterPurpleColor = UIColor(red: 177/255.0, green: 192/255.0, blue: 253/255.0, alpha: 1.0)
+        
         guard let haveGiftValue = event?.haveGift else { return }
         if haveGiftValue == false {
-            noButton.backgroundColor = UIColor.blue
+            noButton.backgroundColor = darkerPurpleColor
             noButton.setTitleColor(UIColor.white, for: .normal)
-            yesButton.backgroundColor = UIColor.white
-            yesButton.setTitleColor(UIColor.blue, for: .normal)
+            yesButton.backgroundColor = lighterPurpleColor
+            yesButton.setTitleColor(UIColor.black, for: .normal)
         }
         else {
-            yesButton.backgroundColor = UIColor.blue
+            yesButton.backgroundColor = darkerPurpleColor
             yesButton.setTitleColor(UIColor.white, for: .normal)
-            noButton.backgroundColor = UIColor.white
-            noButton.setTitleColor(UIColor.blue, for: .normal)
+            noButton.backgroundColor = lighterPurpleColor
+            noButton.setTitleColor(UIColor.black, for: .normal)
         }
     }
     
