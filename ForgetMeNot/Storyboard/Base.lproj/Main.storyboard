@@ -26,7 +26,7 @@
                                     <color key="titleColor" red="0.41599031809999998" green="0.4591867784" blue="0.87428160919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Bae-NO-Bqg" kind="show" id="gDH-EM-hk2"/>
+                                    <segue destination="Bae-NO-Bqg" kind="show" identifier="AddEvent" id="gDH-EM-hk2"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="III-5J-mSd">
@@ -45,6 +45,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" hint="Describes how many days or months until a set event" label="Event description cell"/>
+                                        <connections>
+                                            <segue destination="J71-jx-iFO" kind="show" identifier="EventDetail" id="KmF-T2-93I"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

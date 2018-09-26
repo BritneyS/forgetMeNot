@@ -31,17 +31,15 @@ class EventDetailViewController: UITableViewController {
     }
     
     // MARK: - Methods
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func getEvent() -> Event {
-        return eventsDatabase.events[2]
-    }
-    
     func displayEventData() {
-        event = getEvent()
-        
         guard let titleText = event?.eventTitle else { return }
         titleLabel.text = titleText
         
