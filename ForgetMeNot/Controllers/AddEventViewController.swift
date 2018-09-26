@@ -12,7 +12,7 @@ import UIKit
 
 protocol AddEventViewControllerDelegate: class {
     func addEventViewControllerDidCancel(_ controller: AddEventViewController)
-    func addEventViewController(_ controller: AddEventViewController, didFinishEditing item: Event)
+    func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event)
 }
 
 class AddEventViewController: UITableViewController {
@@ -53,4 +53,20 @@ class AddEventViewController: UITableViewController {
     }
     
     // MARK: - Actions
+    
+    
+    
+    //These will be button functions once connected
+    // MARK: @IBActions
+    
+//    @IBAction func save() {
+//        let event = Event(eventTitle: titleField!, giftRecipient: recipientField!, dateOfEventString: datePicker!, haveGift: haveGiftSwitch!, eventNotes: notesLabel!)
+//        delegate?.addEventViewController(self, didFinishAdding: event)
+//    
+//    }
+    
+    @IBAction func cancel() {
+        delegate?.addEventViewControllerDidCancel(self)
+    }
+    
 }
