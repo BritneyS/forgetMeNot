@@ -11,8 +11,8 @@ import UIKit
 
 class Settings {
     
-    /// modular class
-    /// creates a Settings class / instance that allows backgroundColor to be called and changed in all views
+    var forgetMeColor = UIColor(red: 120/255.0, green: 148/255.0, blue: 255/255.0, alpha: 1.0)
+    
     class var sharedService : Settings {
         struct Background {
             static let instance = Settings()
@@ -21,6 +21,10 @@ class Settings {
     }
     
     init() { }
+    
+    func backgroundColorChanged(color : UIColor) {
+        Settings.sharedService.backgroundColor = forgetMeColor
+    }
     
     var backgroundColor : UIColor {
         get { /// stores values and init a default value
