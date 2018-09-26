@@ -51,6 +51,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return indexPath
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.addEventSegueIdentifier.rawValue {
             guard let addEventViewController = segue.destination as? AddEventViewController else { return }
@@ -83,6 +87,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let formattedToday = dateFormatter.date(from: todayString)
         
         return dateFormatter.string(from: formattedToday!)
+    }
+    
+    func swipeToDelete(indexPath: IndexPath) {
+        events.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            swipeToDelete(indexPath: indexPath)
+            //save methos here if using persistence
+        }
     }
     
     func displayCurrentDate() {
