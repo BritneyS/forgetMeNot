@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             addEventViewController.delegate = self
         } else if segue.identifier == SegueIdentifier.eventDetailSegueIdentifier.rawValue {
             guard let eventDetailViewController = segue.destination as? EventDetailViewController else { return }
-            eventDetailViewController.eventData = events[selectedEventIndex]
+            eventDetailViewController.event = events[selectedEventIndex]
     }
     }
     
