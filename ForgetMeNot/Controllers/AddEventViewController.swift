@@ -46,8 +46,6 @@ class AddEventViewController: UITableViewController {
     var event: Event?
     weak var delegate: AddEventViewControllerDelegate?
     
-    
-
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -72,8 +70,14 @@ class AddEventViewController: UITableViewController {
         
         let dateString = datePicker.date.toString(dateFormat: "MM/dd/yyyy")
         
-//        let event = Event(eventTitle: titleField.text!, giftRecipient: recipientField.text!, dateOfEventString: dateString, haveGift: haveGiftSwitch!, eventNotes: notesLabel!)
-//                delegate?.addEventViewController(self, didFinishAdding: event)
+        let event = Event(eventTitle: titleField.text!, giftRecipient: recipientField.text!, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: notesTextView.text!)
+                delegate?.addEventViewController(self, didFinishAdding: event)
+        
+        print(event.eventTitle)
+        print(event.giftRecipient)
+        print(event.dateOfEventString)
+        print(event.haveGift)
+        print(event.eventNotes)
     }
     
     
