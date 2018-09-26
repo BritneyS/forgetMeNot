@@ -45,11 +45,23 @@ class AddEventViewController: UITableViewController {
     override func viewDidLoad() {
         titleField.becomeFirstResponder()
         super.viewDidLoad()
+        renderSaveBarButton()
     }
 
     // MARK: - Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func renderSaveBarButton() {
+        let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(doesNothing))
+        navigationItem.rightBarButtonItem = saveBarButtonItem
+    }
+    
+    //delete this after adding real save functionality
+    @objc
+    func doesNothing(){
+        
     }
     
     // MARK: - Actions
