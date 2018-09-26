@@ -35,13 +35,7 @@ class EventDetailViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func getEvent() -> Event {
-        return eventsDatabase.events[2]
-    }
-    
     func displayEventData() {
-        event = getEvent()
-        
         guard let titleText = event?.eventTitle else { return }
         titleLabel.text = titleText
         
