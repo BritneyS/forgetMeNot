@@ -10,18 +10,13 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    
     // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    
     var events: [Event] = []
     var selectedEventIndex = 0
-
-    
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -38,7 +33,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     // MARK: - Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,7 +46,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedEventIndex = indexPath.row
+        return indexPath
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.addEventSegueIdentifier.rawValue {
@@ -61,13 +58,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if segue.identifier == SegueIdentifier.eventDetailSegueIdentifier.rawValue {
             guard let eventDetailViewController = segue.destination as? EventDetailViewController else { return }
             eventDetailViewController.event = events[selectedEventIndex]
+        }
     }
-    }
-    
-    
-    
-    
-    
 
     func populateData() {
         let eventDatabase = EventDatabase()
@@ -81,7 +73,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
         return "\(event.formatTimeInterval(seconds: timeIntervalInSeconds)) until \(event.eventTitle)"
     }
-
 
     func formattedDate() -> String {
         let dateFormatter = DateFormatter()
@@ -109,12 +100,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //            print("Error encoding item array")
 //        }
 //    }
-    
 
 }
-
-
-
 
 // MARK: Private Implementation
 
@@ -131,17 +118,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //
 //
 //}
-
-
-
-
-
-
-
-
-
-
-
 
 
 extension HomeViewController: AddEventViewControllerDelegate {
