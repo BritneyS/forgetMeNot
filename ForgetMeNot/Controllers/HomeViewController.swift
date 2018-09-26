@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         displayCurrentDate()
         populateData()
+        loadEvents()
         
         // shows usually hidden folders
         print("🌸 Document folder is \(documentsDirectory())")
@@ -101,7 +102,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             swipeToDelete(indexPath: indexPath)
-            //save methos here if using persistence
+            saveEvents()
         }
     }
     
@@ -124,7 +125,7 @@ extension HomeViewController {
     }
     // adding new file to directory
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Contacts.plist")
+        return documentsDirectory().appendingPathComponent("Events.plist")
     }
     
     func saveEvents() {
@@ -136,6 +137,20 @@ extension HomeViewController {
             print("Error encoding item array")
         }
     }
+    
+    func loadEvents() {
+        let path = dataFilePath()
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                events = try decoder.decode([Event].self, from: data)
+            } catch {
+                print("Error decoding item array!")
+            }
+        }
+    }
+    
+    
 }
 
 
@@ -148,18 +163,15 @@ extension HomeViewController: AddEventViewControllerDelegate {
         }
     
     func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event) {
-        //print("Do some more stuff")
         let newRowIndex = events.count
         events.append(item)
         print(events)
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
-        
+        saveEvents()
         navigationController?.popViewController(animated: true)
-        
-        
-        //need to create a save function and call that method here if doing persistence
+
         
         }
     
