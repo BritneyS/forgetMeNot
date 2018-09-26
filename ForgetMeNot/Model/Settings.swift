@@ -11,7 +11,9 @@ import UIKit
 
 class Settings {
     
+    // MARK: - Properties
     var forgetMeColor = UIColor(red: 120/255.0, green: 148/255.0, blue: 255/255.0, alpha: 1.0)
+    var lighterColor = UIColor(red: 177/255.0, green: 192/255.0, blue: 253/255.0, alpha: 1.0)
     
     class var sharedService : Settings {
         struct Background {
@@ -21,10 +23,6 @@ class Settings {
     }
     
     init() { }
-    
-    func backgroundColorChanged(color : UIColor) {
-        Settings.sharedService.backgroundColor = forgetMeColor
-    }
     
     var backgroundColor : UIColor {
         get { /// stores values and init a default value
@@ -42,5 +40,10 @@ class Settings {
             UserDefaults.standard.set(data, forKey: "backgroundColor")
             UserDefaults.standard.synchronize()
         }
+    }
+    
+    // MARK: - Methods
+    func backgroundColorChanged(color : UIColor) {
+        Settings.sharedService.backgroundColor = forgetMeColor
     }
 }

@@ -13,10 +13,11 @@
         <scene sceneID="DNF-dW-DYj">
             <objects>
                 <tableViewController title="Add Event" id="vUY-zv-9Zh" customClass="AddEventViewController" customModule="ForgetMeNot" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7kx-kg-9gc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7kx-kg-9gc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.41599031809999998" green="0.4591867784" blue="0.87428160919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection id="3C5-ZH-IbO">
                                 <cells>
@@ -33,10 +34,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHI-H5-Ndq">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. &quot;Ralph's Graduation&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHI-H5-Ndq">
                                                     <rect key="frame" x="76" y="6" width="283" height="34.5"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -50,6 +51,7 @@
                                                 <constraint firstItem="U9P-XG-AkA" firstAttribute="centerY" secondItem="ijC-Pf-UlP" secondAttribute="centerY" id="scf-W8-fvm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rPv-ir-gQI">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -64,10 +66,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-PU-gSA">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g. &quot;Ralph&quot;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HSD-PU-gSA">
                                                     <rect key="frame" x="114" y="6" width="245" height="34.5"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -81,6 +83,7 @@
                                                 <constraint firstItem="HSD-PU-gSA" firstAttribute="top" secondItem="KBA-Tg-YQD" secondAttribute="top" constant="6" id="rnt-xd-7yJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="ArE-jI-V5F">
                                         <rect key="frame" x="0.0" y="88" width="375" height="88"/>
@@ -109,6 +112,7 @@
                                                 <constraint firstItem="3kA-iU-TbF" firstAttribute="leading" secondItem="4Wv-bJ-V4y" secondAttribute="trailing" constant="12" id="xZx-X5-qJq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="r39-rz-2db">
                                         <rect key="frame" x="0.0" y="176" width="375" height="44"/>
@@ -134,6 +138,7 @@
                                                 <constraint firstItem="cAz-aR-X5P" firstAttribute="centerY" secondItem="XDI-3g-9vq" secondAttribute="centerY" id="voP-PL-WDB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="365" id="9PF-17-yP2">
                                         <rect key="frame" x="0.0" y="220" width="375" height="365"/>
@@ -150,8 +155,8 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Save gift ideas here!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tKh-bF-NrN">
                                                     <rect key="frame" x="24" y="44" width="327" height="308.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="backgroundColor" red="0.70907656970996613" green="0.77526155325025603" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -164,6 +169,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="tKh-bF-NrN" secondAttribute="bottom" constant="12" id="sdU-vY-r7k"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.69099199219999996" green="0.74805514390000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
