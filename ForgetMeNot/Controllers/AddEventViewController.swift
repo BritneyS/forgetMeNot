@@ -26,7 +26,7 @@ extension Date {
 class AddEventViewController: UITableViewController {
 
     // MARK: - Outlets
-    
+
     /// Labels:
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var recipientLabel: UILabel!
@@ -39,19 +39,20 @@ class AddEventViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var haveGiftSwitch: UISwitch!
     @IBOutlet weak var notesTextView: UITextView!
-    
-    
+
+
     // MARK: - Properties
-    
+
     var event: Event?
     weak var delegate: AddEventViewControllerDelegate?
-    
+
 
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         titleField.becomeFirstResponder()
         super.viewDidLoad()
         renderSaveBarButton()
+        self.view.backgroundColor = Settings.sharedService.forgetMeColor;
         renderCancelBarButton()
     }
 
@@ -59,39 +60,36 @@ class AddEventViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = false
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     func renderSaveBarButton() {
         let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         navigationItem.rightBarButtonItem = saveBarButtonItem
     }
-    
+
     func renderCancelBarButton() {
         let cancelBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         navigationItem.leftBarButtonItem = cancelBarButtonItem
     }
-    
+
     // MARK: - Actions
     @objc
     func save() {
-        
+
         let dateString = datePicker.date.toString(dateFormat: "MM/dd/yyyy")
-        
+
         guard let eventTitle = titleField.text, let giftRecipient = recipientField.text, let eventNotes = notesTextView.text else { return }
-        
+
         let event = Event(eventTitle: eventTitle, giftRecipient: giftRecipient, dateOfEventString: dateString, haveGift: haveGiftSwitch.isOn, eventNotes: eventNotes)
                 delegate?.addEventViewController(self, didFinishAdding: event)
     }
-    
+
     @objc
     func cancel() {
         delegate?.addEventViewControllerDidCancel(self)
     }
 
 }
-
-
-
