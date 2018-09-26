@@ -120,6 +120,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 //}
 
 
+
+extension HomeViewController {
+    
+    private func populateEvents() {
+        
+    }
+}
+
+
+
+
 extension HomeViewController: AddEventViewControllerDelegate {
 
     func addEventViewControllerDidCancel(_ controller: AddEventViewController) {
@@ -131,6 +142,7 @@ extension HomeViewController: AddEventViewControllerDelegate {
         //print("Do some more stuff")
         let newRowIndex = events.count
         events.append(item)
+        print(events)
         
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
