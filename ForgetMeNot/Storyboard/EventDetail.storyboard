@@ -41,7 +41,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="vX5-p1-ZfX" secondAttribute="trailing" constant="24" id="lhw-D5-ukq"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.70907656969999999" green="0.77526155330000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.70980392156862748" green="0.77526155330000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="z9Y-Nc-xzb">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

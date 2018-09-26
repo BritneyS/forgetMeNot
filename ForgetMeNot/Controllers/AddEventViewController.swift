@@ -53,6 +53,7 @@ class AddEventViewController: UITableViewController {
         super.viewDidLoad()
         renderSaveBarButton()
         self.view.backgroundColor = Settings.sharedService.lighterColor;
+        UINavigationBar.appearance().barTintColor = UIColor(red: 181/255.0, green: 198/255.0, blue: 255/255.0, alpha: 1.0)
         renderCancelBarButton()
         restrictDates()
     }
