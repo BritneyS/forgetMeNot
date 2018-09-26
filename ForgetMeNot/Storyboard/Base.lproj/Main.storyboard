@@ -42,6 +42,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="J71-jx-iFO" kind="show" id="KmF-T2-93I"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -49,14 +52,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Lop-XK-sA6"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imr-7E-Epg">
-                                <rect key="frame" x="282" y="299" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Detail View"/>
-                                <connections>
-                                    <segue destination="J71-jx-iFO" kind="show" id="3hu-Q1-iXM"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Events:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-F1-H0m">
                                 <rect key="frame" x="50" y="357" width="275" height="21.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
