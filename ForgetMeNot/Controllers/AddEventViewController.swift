@@ -54,14 +54,14 @@ class AddEventViewController: UITableViewController {
     }
     
     func renderSaveBarButton() {
-        let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(doesNothing))
+        let saveBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         navigationItem.rightBarButtonItem = saveBarButtonItem
     }
     
     //delete this after adding real save functionality
     @objc
-    func doesNothing(){
-        
+    func save(){
+        //save functionality can go here
     }
     
     // MARK: - Actions
