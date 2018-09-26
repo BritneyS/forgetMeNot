@@ -42,6 +42,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="J71-jx-iFO" kind="show" id="KmF-T2-93I"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
