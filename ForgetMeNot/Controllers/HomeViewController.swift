@@ -70,6 +70,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         for event in eventDatabase.events {
             events.append(event)
         }
+        events = sortEvents(array: events)
+    }
+    
+    func sortEvents(array: [Event]) -> [Event] {
+        let sortedEvents = array.sorted(by: { $0.dateOfEvent < $1.dateOfEvent } )
+        return sortedEvents
     }
     
     func getTimeIntervalString(event: Event) -> String {
