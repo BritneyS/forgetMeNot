@@ -90,6 +90,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func limitToFiveEvents(array: [Event]) -> [Event] {
         var fiveSoonestEvents: [Event] = []
+        if events.count < 5 { return events }
         for event in events[0...4] {
             fiveSoonestEvents.append(event)
         }
