@@ -36,12 +36,43 @@ class Event: Codable {
         return dateOfEventString.toDate(dateString: dateOfEventString)
     }
     
+    enum GiftState: String, Codable {
+        case gift
+        case warning
+        case alarm
+        
+        var emoji: String {
+            switch self {
+            case .gift:
+                return "🎁"
+            case .warning:
+                return "⚠️"
+            case .alarm:
+                return "🚨"
+            }
+        }
+    }
+    
+    var giftState: GiftState = .warning
+    
     var giftEmoji: String {
-        if haveGift == true {
-            return "🎁"
+        if giftState == .gift {
+            return GiftState.gift.emoji
+        } else if giftState == .warning {
+            return GiftState.warning.emoji
+        } else if giftState == .alarm {
+            return GiftState.alarm.emoji
         }
         return ""
     }
+    
+//    func setGiftState() {
+//        if haveGift == true {
+//            giftState = .gift
+//        } else if haveGift == false {
+//
+//        }
+//    }
     
 }
 
