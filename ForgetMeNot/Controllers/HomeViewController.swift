@@ -17,6 +17,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Properties
     var events: [Event] = []
     var selectedEventIndex = 0
+//    let gift = "🎁"
+//    let warning = "⚠️"
+//    let alarm = "🚨"
     
     // MARK: - Override Methods
     override func viewDidLoad() {
@@ -46,8 +49,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
-        
+//        if events[indexPath.row].haveGift == false {
+//            if getTimeIntervalString(event: events[indexPath.row]).contains("1 week") || getTimeIntervalString(event: events[indexPath.row]).contains("days") || getTimeIntervalString(event: events[indexPath.row]).contains("day") {
+//                cell.textLabel?.text = "\(alarm)" + getTimeIntervalString(event: events[indexPath.row])
+//            } else {
+//            cell.textLabel?.text = "\(warning)" + getTimeIntervalString(event: events[indexPath.row])
+//            }
+//        } else {
+//            cell.textLabel?.text = "\(gift)" + getTimeIntervalString(event: events[indexPath.row])
+//        }
+        let eventText = getTimeIntervalString(event: events[indexPath.row])
+        cell.textLabel?.text = eventText
         return cell
     }
     
@@ -74,6 +86,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let eventDatabase = EventDatabase()
         for event in eventDatabase.events {
             events.append(event)
+            
         }
     }
     
