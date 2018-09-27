@@ -46,7 +46,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
-        cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
+        let eventText = getTimeIntervalString(event: events[indexPath.row])
+        cell.textLabel?.text = eventText
 
         return cell
     }
