@@ -25,10 +25,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         displayCurrentDate()
         if dataFileExists() { loadEvents() }
         else { populateData() }
-
-        // shows usually hidden folders
-        print("🌸 Document folder is \(documentsDirectory())")
-        print("🌸 Data file path is \(dataFilePath())")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +74,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 events.append(event)
             }
         }
-        events = sortEvents(array: events)
-        events = limitToFiveEvents(array: events)
+        events = sortAndLimitEvents(events: events)
     }
 
     func sortEvents(array: [Event]) -> [Event] {
@@ -95,6 +90,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             fiveSoonestEvents.append(event)
         }
         return fiveSoonestEvents
+    }
+    
+    func sortAndLimitEvents(events: [Event]) -> [Event] {
+        let sortedEvents = sortEvents(array: events)
+        let sortedAndLimited = limitToFiveEvents(array: sortedEvents)
+        return sortedAndLimited
     }
 
     func getTimeIntervalString(event: Event) -> String {
@@ -163,8 +164,7 @@ extension HomeViewController {
             let decoder = PropertyListDecoder()
             do {
                 events = try decoder.decode([Event].self, from: data)
-                events = sortEvents(array: events)
-                events = limitToFiveEvents(array: events)
+                events = sortAndLimitEvents(events: events)
             } catch {
                 print("Error decoding item array!")
             }
@@ -188,8 +188,7 @@ extension HomeViewController: AddEventViewControllerDelegate {
 
     func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event) {
         events.append(item)
-        events = sortEvents(array: events)
-        events = limitToFiveEvents(array: events)
+        events = sortAndLimitEvents(events: events)
         tableView.reloadData()
         saveEvents()
         navigationController?.popViewController(animated: true)
