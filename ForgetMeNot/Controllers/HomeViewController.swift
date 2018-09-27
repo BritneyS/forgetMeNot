@@ -68,7 +68,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func populateData() {
         let eventDatabase = EventDatabase()
         for event in eventDatabase.events {
-            events.append(event)
+            if event.dateOfEvent > Date() {
+                events.append(event)
+            }
         }
         events = sortEvents(array: events)
     }
@@ -146,12 +148,10 @@ extension HomeViewController {
 extension HomeViewController: AddEventViewControllerDelegate {
 
     func addEventViewControllerDidCancel(_ controller: AddEventViewController) {
-        //print("Do some stuff")
         navigationController?.popViewController(animated: true)
         }
     
     func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event) {
-        //print("Do some more stuff")
         let newRowIndex = events.count
         events.append(item)
         print(events)
@@ -160,7 +160,6 @@ extension HomeViewController: AddEventViewControllerDelegate {
         tableView.insertRows(at: [indexPath], with: .automatic)
         
         navigationController?.popViewController(animated: true)
-        
         
         //need to create a save function and call that method here if doing persistence
         
