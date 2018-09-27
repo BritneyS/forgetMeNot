@@ -23,8 +23,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         displayCurrentDate()
-        if dataFileExists() { loadEvents() }
-        else { populateData() }
+        if dataFileExists() {
+            loadEvents()
+        } else {
+            populateData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +88,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func limitToFiveEvents(array: [Event]) -> [Event] {
         var fiveSoonestEvents: [Event] = []
-        if events.count < 5 { return events }
+        if array.count < 5 {
+            return array
+        }
         for event in events[0...4] {
             fiveSoonestEvents.append(event)
         }
