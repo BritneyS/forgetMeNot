@@ -17,7 +17,7 @@ extension String {
     }
 }
 
-class Event: Codable {
+class Event: NSObject, Codable {
     var eventTitle: String
     var giftRecipient: String
     var dateOfEventString: String

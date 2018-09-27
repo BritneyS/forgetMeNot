@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol EventDetailViewControllerDelegate: class {
+    func detail(_ controller: EventDetailViewController, didChangeGiftStatus event: Event)
+}
+
 class EventDetailViewController: UITableViewController {
     
     // MARK: - Outlets
@@ -19,6 +23,7 @@ class EventDetailViewController: UITableViewController {
     @IBOutlet weak var yesButton: UIButton!
     
     // MARK: - Properties
+    weak var delegate: EventDetailViewControllerDelegate?
     let eventsDatabase = EventDatabase()
     var event: Event?
 
@@ -66,6 +71,7 @@ class EventDetailViewController: UITableViewController {
     func updateHaveGift(haveGift: Bool) {
         guard let eventToUpdate = event else { return }
         eventToUpdate.haveGift = haveGift
+        delegate?.detail(self, didChangeGiftStatus: eventToUpdate)
     }
     
     func setButtonColors() {
