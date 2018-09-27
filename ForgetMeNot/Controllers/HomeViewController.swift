@@ -127,7 +127,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func displayCurrentDate() {
-
         dateLabel.text = "Today is \(formattedDate())"
     }
 
@@ -164,6 +163,8 @@ extension HomeViewController {
             let decoder = PropertyListDecoder()
             do {
                 events = try decoder.decode([Event].self, from: data)
+                events = sortEvents(array: events)
+                events = limitToFiveEvents(array: events)
             } catch {
                 print("Error decoding item array!")
             }
