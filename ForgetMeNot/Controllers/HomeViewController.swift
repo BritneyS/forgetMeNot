@@ -68,6 +68,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else if segue.identifier == SegueIdentifier.eventDetailSegueIdentifier.rawValue {
             guard let eventDetailViewController = segue.destination as? EventDetailViewController else { return }
             eventDetailViewController.event = events[selectedEventIndex]
+            eventDetailViewController.delegate = self
         }
     }
 
@@ -203,4 +204,15 @@ extension HomeViewController: AddEventViewControllerDelegate {
 
         }
 
+}
+
+extension HomeViewController: EventDetailViewControllerDelegate {
+    func detail(_ controller: EventDetailViewController, didChangeGiftStatus event: Event) {
+        guard let index = self.events.index(of: event) else { return }
+        let indexPath = IndexPath(row: index, section: 0)
+
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        let eventText = getTimeIntervalString(event: event)
+        cell.textLabel?.text = eventText
+    }
 }
