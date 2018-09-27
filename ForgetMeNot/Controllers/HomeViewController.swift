@@ -23,8 +23,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         displayCurrentDate()
-        populateData()
-        loadEvents()
+        if dataFileExists() { loadEvents() }
+        else { populateData() }
 
         // shows usually hidden folders
         print("🌸 Document folder is \(documentsDirectory())")
@@ -170,8 +170,14 @@ extension HomeViewController {
             }
         }
     }
+    
+    func dataFileExists() -> Bool {
+        let fileManager = FileManager()
+        let filePath = dataFilePath().path
+        
+        return fileManager.fileExists(atPath: filePath)
+    }
 }
-
 
 
 extension HomeViewController: AddEventViewControllerDelegate {
