@@ -9,27 +9,32 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+
     // MARK: - Properties
     var events: [Event] = []
     var fiveSoonestEvents: [Event] = []
     var selectedEventIndex = 0
-    
+
     // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         displayCurrentDate()
         populateData()
+        loadEvents()
+
+        // shows usually hidden folders
+        print("🌸 Document folder is \(documentsDirectory())")
+        print("🌸 Data file path is \(dataFilePath())")
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -39,23 +44,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
         cell.textLabel?.text = getTimeIntervalString(event: events[indexPath.row])
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedEventIndex = indexPath.row
         return indexPath
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdentifier.addEventSegueIdentifier.rawValue {
             guard let addEventViewController = segue.destination as? AddEventViewController else { return }
@@ -76,13 +81,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         events = sortEvents(array: events)
         events = limitToFiveEvents(array: events)
     }
-    
+
     func sortEvents(array: [Event]) -> [Event] {
         var sortedEvents: [Event] = []
         sortedEvents = array.sorted(by: { $0.dateOfEvent < $1.dateOfEvent } )
         return sortedEvents
     }
-    
+
     func limitToFiveEvents(array: [Event]) -> [Event] {
         var fiveSoonestEvents: [Event] = []
         for event in events[0...4] {
@@ -90,7 +95,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return fiveSoonestEvents
     }
-    
+
     func getTimeIntervalString(event: Event) -> String {
         let eventDate = event.dateOfEvent
         let timeIntervalInSeconds = event.countdownToEvent(dateOfEvent: eventDate)
@@ -100,56 +105,67 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func formattedDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        
+
         let today = Date()
         let todayString = dateFormatter.string(from: today)
         let formattedToday = dateFormatter.date(from: todayString)
-        
+
         return dateFormatter.string(from: formattedToday!)
     }
-    
+
     func swipeToDelete(indexPath: IndexPath) {
         events.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             swipeToDelete(indexPath: indexPath)
-            //save methos here if using persistence
+            saveEvents()
         }
     }
-    
+
     func displayCurrentDate() {
-        
+
         dateLabel.text = "Today is \(formattedDate())"
     }
-    
-//    func saveEvents() {
-//        let encoder = PropertyListEncoder()
-//        do {
-//            let data = try encoder.encode(events)
-//
-//            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-//        } catch {
-//            print("Error encoding item array")
-//        }
-//    }
 
 }
 
 
 
-
+// MARK: Data Persistence
 extension HomeViewController {
-    
-    private func populateEvents() {
-        let eventDatabase = EventDatabase()
-        
-        for event in eventDatabase.events {
-            let newEvent = Event(eventTitle: event.eventTitle, giftRecipient: event.giftRecipient, dateOfEventString: event.dateOfEventString, haveGift: event.haveGift, eventNotes: event.eventNotes)
-            print(eventDatabase)
-            print(newEvent)
+
+    // accessing Documents folder of app
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    // adding new file to directory
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Events.plist")
+    }
+
+    func saveEvents() {
+        let encoder = PropertyListEncoder()
+        do {
+            let data = try encoder.encode(events)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding item array")
+        }
+    }
+
+    func loadEvents() {
+        let path = dataFilePath()
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                events = try decoder.decode([Event].self, from: data)
+            } catch {
+                print("Error decoding item array!")
+            }
         }
     }
 }
@@ -161,20 +177,17 @@ extension HomeViewController: AddEventViewControllerDelegate {
     func addEventViewControllerDidCancel(_ controller: AddEventViewController) {
         navigationController?.popViewController(animated: true)
         }
-    
+
     func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event) {
         events.append(item)
         events = sortEvents(array: events)
         events = limitToFiveEvents(array: events)
         tableView.reloadData()
-        
+        saveEvents()
         navigationController?.popViewController(animated: true)
-        
+
         //need to create a save function and call that method here if doing persistence
-        
+
         }
-    
+
 }
-
-
-
