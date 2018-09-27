@@ -93,7 +93,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if array.count < 5 {
             return array
         }
-        for event in events[0...4] {
+        for event in array[0...4] {
             fiveSoonestEvents.append(event)
         }
         return fiveSoonestEvents
