@@ -24,6 +24,8 @@ class Event: Codable {
     var haveGift: Bool
     var eventNotes: String
     
+    static var giftState: GiftState?
+    
     init(eventTitle: String, giftRecipient: String, dateOfEventString: String, haveGift: Bool, eventNotes: String) {
         self.eventTitle = eventTitle
         self.giftRecipient = giftRecipient
@@ -35,6 +37,9 @@ class Event: Codable {
     var dateOfEvent: Date {
         return dateOfEventString.toDate(dateString: dateOfEventString)
     }
+}
+
+extension Event {
     
     enum GiftState: String, Codable {
         case gift
@@ -52,8 +57,6 @@ class Event: Codable {
             }
         }
     }
-    
-    static var giftState: GiftState?
     
     var giftEmoji: String {
         if Event.giftState == .gift {
