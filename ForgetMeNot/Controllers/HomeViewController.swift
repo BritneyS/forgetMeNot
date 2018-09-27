@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // MARK: - Properties
     var events: [Event] = []
+    var fiveSoonestEvents: [Event] = []
     var selectedEventIndex = 0
     
     // MARK: - Override Methods
@@ -73,11 +74,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }
         events = sortEvents(array: events)
+        events = limitToFiveEvents(array: events)
     }
     
     func sortEvents(array: [Event]) -> [Event] {
-        let sortedEvents = array.sorted(by: { $0.dateOfEvent < $1.dateOfEvent } )
+        var sortedEvents: [Event] = []
+        sortedEvents = array.sorted(by: { $0.dateOfEvent < $1.dateOfEvent } )
         return sortedEvents
+    }
+    
+    func limitToFiveEvents(array: [Event]) -> [Event] {
+        var fiveSoonestEvents: [Event] = []
+        for event in events[0...4] {
+            fiveSoonestEvents.append(event)
+        }
+        return fiveSoonestEvents
     }
     
     func getTimeIntervalString(event: Event) -> String {
@@ -152,12 +163,10 @@ extension HomeViewController: AddEventViewControllerDelegate {
         }
     
     func addEventViewController(_ controller: AddEventViewController, didFinishAdding item: Event) {
-        let newRowIndex = events.count
         events.append(item)
-        print(events)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        events = sortEvents(array: events)
+        events = limitToFiveEvents(array: events)
+        tableView.reloadData()
         
         navigationController?.popViewController(animated: true)
         
