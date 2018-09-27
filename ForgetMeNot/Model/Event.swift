@@ -53,26 +53,26 @@ class Event: Codable {
         }
     }
     
-    var giftState: GiftState = .warning
+    static var giftState: GiftState?
     
     var giftEmoji: String {
-        if giftState == .gift {
+        if Event.giftState == .gift {
             return GiftState.gift.emoji
-        } else if giftState == .warning {
+        } else if Event.giftState == .warning {
             return GiftState.warning.emoji
-        } else if giftState == .alarm {
+        } else if Event.giftState == .alarm {
             return GiftState.alarm.emoji
         }
         return ""
     }
     
-//    func setGiftState() {
-//        if haveGift == true {
-//            giftState = .gift
-//        } else if haveGift == false {
-//
-//        }
-//    }
+    func setGiftState(state: GiftState) {
+        if haveGift == true {
+            Event.giftState = .gift
+        } else if haveGift == false {
+            Event.giftState = state
+        }
+    }
     
 }
 
@@ -92,6 +92,7 @@ extension Event {
         switch true {
         case seconds / secondsInAYear > 0:
             let numberOfYears = Int(seconds / secondsInAYear)
+            setGiftState(state: .warning)
             if numberOfYears == 1 {
                 return "\(giftEmoji) \(numberOfYears) year"
             } else {
@@ -99,6 +100,7 @@ extension Event {
             }
         case seconds / secondsInAMonth > 0:
             let numberOfMonths = Int(seconds / secondsInAMonth)
+            setGiftState(state: .warning)
             if numberOfMonths == 1 {
                 return "\(giftEmoji) \(numberOfMonths) month"
             } else {
@@ -106,19 +108,22 @@ extension Event {
             }
         case seconds / secondsInAWeek > 0:
             let numberofWeeks = Int(seconds / secondsInAWeek)
+            setGiftState(state: .warning)
             if numberofWeeks == 1 {
                 return "\(giftEmoji) \(numberofWeeks) week"
             } else {
-                return " \(giftEmoji) \(numberofWeeks) weeks"
+                return "\(giftEmoji) \(numberofWeeks) weeks"
             }
         case seconds / secondsInADay > 0:
             let numberOfDays = Int(seconds / secondsInADay)
+            setGiftState(state: .alarm)
             if numberOfDays == 1 {
                 return "\(giftEmoji) \(numberOfDays) day"
             } else {
-                return " \(giftEmoji) \(numberOfDays) days"
+                return "\(giftEmoji) \(numberOfDays) days"
             }
         case seconds < secondsInADay:
+            setGiftState(state: .alarm)
             return "\(giftEmoji) Less than one day"
         default:
             return "Invalid date"
