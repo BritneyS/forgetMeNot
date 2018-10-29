@@ -84,27 +84,30 @@ extension Event {
     func countdownToEvent(dateOfEvent: Date) -> Int {
         let currentDate = Date()
         return Int(DateInterval(start: currentDate, end: dateOfEvent).duration) // Time Interval
-        //return Int(dateOfEvent.timeIntervalSince(currentDate))  // TimeInterval
     }
     
     func getSecondIntervals(dateOfEvent: Date) -> (secondsInADay: Int, secondsInAWeek: Int, secondsInAMonth: Int, secondsInAYear: Int) {
+        
         let calendar = Calendar.current
         var secondIntervals: (secondsInADay: Int, secondsInAWeek: Int, secondsInAMonth: Int, secondsInAYear: Int)
         
-        secondIntervals.secondsInADay = Int((calendar.dateInterval(of: .day, for: dateOfEvent)?.duration)!)
-        //secondIntervals.secondsInAWeek = secondIntervals.secondsInADay * 7
-        secondIntervals.secondsInAWeek = Int((calendar.dateInterval(of: .weekOfMonth, for: dateOfEvent)?.duration)!)
-        secondIntervals.secondsInAMonth = Int((calendar.dateInterval(of: .month, for: dateOfEvent)?.duration)!)
-        secondIntervals.secondsInAYear = Int((calendar.dateInterval(of: .year, for: dateOfEvent)?.duration)!)
+        guard
+            let dayDateInterval = calendar.dateInterval(of: .day, for: dateOfEvent),
+            let weekDateInterval = calendar.dateInterval(of: .weekOfMonth, for: dateOfEvent),
+            let monthDateInterval = calendar.dateInterval(of: .month, for: dateOfEvent),
+            let yearDateInterval = calendar.dateInterval(of: .year, for: dateOfEvent)
+        else { return (0,0,0,0) }
+        
+        secondIntervals.secondsInADay = Int(dayDateInterval.duration)
+        secondIntervals.secondsInAWeek = Int(weekDateInterval.duration)
+        secondIntervals.secondsInAMonth = Int(monthDateInterval.duration)
+        secondIntervals.secondsInAYear = Int(yearDateInterval.duration)
+        
         return secondIntervals
     }
     
     func formatTimeInterval(seconds: Int, dateOfEvent: Date) -> String {
-//        let secondsInAYear = 29_030_400
-//        let secondsInAMonth = 2_419_200
-//        let secondsInAWeek = 604_800
-//        let secondsInADay = 86_400
-        
+
         let secondIntervals = getSecondIntervals(dateOfEvent: dateOfEvent)
         
         switch true {
