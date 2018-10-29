@@ -87,6 +87,18 @@ extension Event {
         //return Int(dateOfEvent.timeIntervalSince(currentDate))  // TimeInterval
     }
     
+    func getSecondIntervals(dateOfEvent: Date) -> (secondsInADay: Int, secondsInAWeek: Int, secondsInAMonth: Int, secondsInAYear: Int) {
+        let calendar = Calendar.current
+        var secondIntervals: (secondsInADay: Int, secondsInAWeek: Int, secondsInAMonth: Int, secondsInAYear: Int)
+        
+        secondIntervals.secondsInADay = Int((calendar.dateInterval(of: .day, for: dateOfEvent)?.duration)!)
+        //secondIntervals.secondsInAWeek = secondIntervals.secondsInADay * 7
+        secondIntervals.secondsInAWeek = Int((calendar.dateInterval(of: .weekOfMonth, for: dateOfEvent)?.duration)!)
+        secondIntervals.secondsInAMonth = Int((calendar.dateInterval(of: .month, for: dateOfEvent)?.duration)!)
+        secondIntervals.secondsInAYear = Int((calendar.dateInterval(of: .year, for: dateOfEvent)?.duration)!)
+        return secondIntervals
+    }
+    
     func formatTimeInterval(seconds: Int) -> String {
         let secondsInAYear = 29_030_400
         let secondsInAMonth = 2_419_200
