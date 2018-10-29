@@ -99,46 +99,48 @@ extension Event {
         return secondIntervals
     }
     
-    func formatTimeInterval(seconds: Int) -> String {
-        let secondsInAYear = 29_030_400
-        let secondsInAMonth = 2_419_200
-        let secondsInAWeek = 604_800
-        let secondsInADay = 86_400
+    func formatTimeInterval(seconds: Int, dateOfEvent: Date) -> String {
+//        let secondsInAYear = 29_030_400
+//        let secondsInAMonth = 2_419_200
+//        let secondsInAWeek = 604_800
+//        let secondsInADay = 86_400
+        
+        let secondIntervals = getSecondIntervals(dateOfEvent: dateOfEvent)
         
         switch true {
-        case seconds / secondsInAYear > 0:
-            let numberOfYears = Int(seconds / secondsInAYear)
+        case seconds / secondIntervals.secondsInAYear > 0:
+            let numberOfYears = Int(seconds / secondIntervals.secondsInAYear)
             setGiftState(state: .warning)
             if numberOfYears == 1 {
                 return "\(giftEmoji) \(numberOfYears) year"
             } else {
                 return "\(giftEmoji) \(numberOfYears) years"
             }
-        case seconds / secondsInAMonth > 0:
-            let numberOfMonths = Int(seconds / secondsInAMonth)
+        case seconds / secondIntervals.secondsInAMonth > 0:
+            let numberOfMonths = Int(seconds / secondIntervals.secondsInAMonth)
             setGiftState(state: .warning)
             if numberOfMonths == 1 {
                 return "\(giftEmoji) \(numberOfMonths) month"
             } else {
                 return "\(giftEmoji) \(numberOfMonths) months"
             }
-        case seconds / secondsInAWeek > 0:
-            let numberofWeeks = Int(seconds / secondsInAWeek)
+        case seconds / secondIntervals.secondsInAWeek > 0:
+            let numberofWeeks = Int(seconds / secondIntervals.secondsInAWeek)
             setGiftState(state: .warning)
             if numberofWeeks == 1 {
                 return "\(giftEmoji) \(numberofWeeks) week"
             } else {
                 return "\(giftEmoji) \(numberofWeeks) weeks"
             }
-        case seconds / secondsInADay > 0:
-            let numberOfDays = Int(seconds / secondsInADay)
+        case seconds / secondIntervals.secondsInADay > 0:
+            let numberOfDays = Int(seconds / secondIntervals.secondsInADay)
             setGiftState(state: .alarm)
             if numberOfDays == 1 {
                 return "\(giftEmoji) \(numberOfDays) day"
             } else {
                 return "\(giftEmoji) \(numberOfDays) days"
             }
-        case seconds < secondsInADay:
+        case seconds < secondIntervals.secondsInADay:
             setGiftState(state: .alarm)
             return "\(giftEmoji) Less than one day"
         default:
