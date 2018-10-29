@@ -83,7 +83,8 @@ extension Event {
     
     func countdownToEvent(dateOfEvent: Date) -> Int {
         let currentDate = Date()
-        return Int(dateOfEvent.timeIntervalSince(currentDate))  // TimeInterval
+        return Int(DateInterval(start: currentDate, end: dateOfEvent).duration) // Time Interval
+        //return Int(dateOfEvent.timeIntervalSince(currentDate))  // TimeInterval
     }
     
     func formatTimeInterval(seconds: Int) -> String {
