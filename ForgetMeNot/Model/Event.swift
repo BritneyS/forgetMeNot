@@ -116,7 +116,7 @@ extension Event {
             } else {
                 return "\(giftEmoji) \(numberOfYears) years"
             }
-        case seconds / secondIntervals.secondsInAMonth > 0:
+        case seconds / secondIntervals.secondsInAMonth > 1:
             let numberOfMonths = Int(seconds / secondIntervals.secondsInAMonth)
             setGiftState(state: .warning)
             if numberOfMonths == 1 {
